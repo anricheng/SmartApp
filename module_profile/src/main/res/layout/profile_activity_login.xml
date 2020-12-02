@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.capgemini.lib_common.extendtions.CharSequenceExtKt" />
+
+        <variable
+            name="viewmodel"
+            type="com.capgemini.module_profile.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/common_include_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commonToolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:error="@{viewmodel.userNameError}"
+                    app:errorEnabled="@{!viewmodel.validate,default = false}"
+                    app:errorIconDrawable="@null"
+                    app:errorTextAppearance="@color/colorRed">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="User Name"
+                        android:inputType="text"
+                        android:fontFamily="@font/antennawgl_regularitalic"
+                        android:maxLines="1"
+                        android:text="@={viewmodel.userName}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:error="@{viewmodel.passwordError}"
+                    app:errorEnabled="@{!viewmodel.validate,default = false}"
+                    app:errorIconDrawable="@null"
+                    app:errorTextAppearance="@color/colorRed">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:fontFamily="@font/antennawgl_regularitalic"
+                        android:singleLine="true"
+                        android:text="@={viewmodel.password}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/login_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:onClick="@{()->viewmodel.login()}"
+                    android:enabled="@{viewmodel.validate,default = false}"
+                    android:fontFamily="@font/antennawgl_regular"
+                    android:textSize="20dp"
+                    android:text="Login" />
+
+                <Button
+                    android:id="@+id/toggleStatusBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/antennawgl_regular"
+                    android:text="@{viewmodel.validate? @string/profile_hai:@string/profile_login}"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/fragmentUsingStatusBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/antennawgl_regular"
+                    android:layout_weight="1"
+                    android:onClick="@{()->viewmodel.goToFragmentActivity()}"
+                    android:text="goToFragmentActivity"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

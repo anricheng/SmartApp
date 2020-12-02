@@ -1,0 +1,42 @@
+afterEvaluate {
+    android {
+        flavorDimensions 'environment'//, "performance"
+        productFlavors {
+            dev {
+                buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
+                dimension 'environment'
+            }
+
+            qa {
+                buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
+                dimension 'environment'
+            }
+
+            stage {
+                buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
+                dimension 'environment'
+            }
+
+            product {
+                buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
+                dimension 'environment'
+            }
+
+//            performance {
+//                dimension 'performance'
+//            }
+//
+//            nonperformance {
+//                dimension 'performance'
+//            }
+        }
+    }
+
+    kotlin {
+        androidExtensions {
+            experimental = true
+        }
+    }
+}
+
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="common_loadingCancelable" type="id" />
+    <item name="common_loadingHoldable" type="id" />
+    <item name="common_loading_frame" type="id" />
+
+</resources>

@@ -1,0 +1,10 @@
+include ':lib_webview'
+include ':lib_widget'
+include ':module_sample'
+include ':module_profile'
+include ':lib_network_config'
+include ':lib_base'
+include ':lib_common'
+include ':lib_repository'
+include ':app'
+rootProject.name = "Smart_Android_App"

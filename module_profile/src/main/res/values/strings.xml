@@ -1,0 +1,4 @@
+<resources>
+    <string name="profile_login">登录</string>
+    <string name="profile_hai">隐藏状态栏</string>
+</resources>

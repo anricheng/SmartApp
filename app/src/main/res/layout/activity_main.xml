@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capgemini.com.MainActivityViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+       <include layout="@layout/common_include_toolbar"/>
+
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="click to jump"
+            android:fontFamily="@font/antennawgl_semibold"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commonToolbar"
+            app:throttleFirstClick="@{() -> viewModel.updateTask()}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/second"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="This is another text style"
+            android:typeface="@{@string/common_typeface_antennawgl_regular}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt" />
+
+        <EditText
+            android:typeface="@{@string/common_typeface_antennawgl_regular}"
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@={viewModel.taskId}"
+            app:addTextChangedListener="@{viewModel.textWatcher}"
+            app:layout_constraintTop_toBottomOf="@+id/second" />
+
+        <Button
+            android:typeface="@{@string/common_typeface_antennawgl_medium}"
+            android:text="This a button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
