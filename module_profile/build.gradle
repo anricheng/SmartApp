@@ -61,8 +61,6 @@ dependencies {
 
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 
-    api project(path: ':lib_base')
-
-
+    api project(path: ':lib_communication')
 
 }

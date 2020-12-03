@@ -46,7 +46,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':lib_base')
+    implementation project(path: ':lib_communication')
     implementation android_dependencies["constraintlayout"]
     implementation android_dependencies["hilt-lifecycle-viewmodel"]
     implementation android_dependencies["hilt-android"]
