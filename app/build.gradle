@@ -15,6 +15,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
 
         kapt {
             arguments {
@@ -56,6 +58,7 @@ dependencies {
     kapt 'com.alibaba:arouter-compiler:1.2.2'
 
     implementation project(path: ':module_profile')
+    implementation 'com.android.support:multidex:1.0.3'
 
 
 }

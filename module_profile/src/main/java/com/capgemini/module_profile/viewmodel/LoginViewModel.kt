@@ -10,10 +10,10 @@ import com.capgemini.lib_base.arouter.ProfileModuleARouterPath.Companion.PROFILE
 import com.capgemini.lib_base.sp.DataClassSample
 import com.capgemini.lib_base.sp.ProfileInfo
 import com.capgemini.lib_common.extendtions.*
-import com.capgemini.lib_common.widget.Loading
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import loading.Loading
 
 class LoginViewModel : ViewModel() {
     private var userNameLengthCount = 0
@@ -66,9 +66,9 @@ class LoginViewModel : ViewModel() {
 
     fun login() {
         viewModelScope.launch(Dispatchers.Main) {
-            Loading.show(ActivityUtils.getTopActivity())
+          Loading.show(ActivityUtils.getTopActivity())
             delay(1000)
-            Loading.dismiss(ActivityUtils.getTopActivity())
+           Loading.dismiss(ActivityUtils.getTopActivity())
             ProfileInfo.dataClassSample = DataClassSample("海峰好帅")
             ActivityUtils.getTopActivity().toastLg("模拟登陆成功${ProfileInfo.dataClassSample.data1}")
             ProfileInfo.userName = userName.value.toString()

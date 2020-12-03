@@ -1,4 +1,4 @@
-package com.capgemini.lib_common.widget
+package loading
 
 import android.app.Activity
 import android.content.Context
@@ -16,7 +16,7 @@ import android.widget.TextView
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ConvertUtils
-import com.capgemini.lib_common.R
+import com.capgemini.lib_widget.R
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
@@ -205,7 +205,7 @@ object Loading {
             count = AtomicInteger(0)
             isShowing = AtomicBoolean(false)
             setBackgroundColor(Color.TRANSPARENT)
-            LayoutInflater.from(context).inflate(R.layout.widget_loading, this)
+            LayoutInflater.from(context).inflate(R.layout.layout_loading, this)
             mMessage = findViewById(R.id.tv_message)
             outside = findViewById(R.id.touch_outside)
             //加上一个margin toolbar + status bar 的高度，避免toolbar 返回键不起作用，其中 toolbar 高度是50dp,设置一个60作为buffer

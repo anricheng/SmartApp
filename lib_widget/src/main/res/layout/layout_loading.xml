@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/touch_outside"
     android:layout_width="match_parent"
-    android:background="@color/transparent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#00000000">
 
     <LinearLayout
         android:id="@+id/ll_root"
@@ -16,7 +15,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <com.capgemini.lib_common.widget.LoadingView
+        <com.capgemini.lib_widget.loading.LoadingView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />
@@ -26,12 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/antennawgl_medium"
             android:gravity="center_horizontal"
             android:includeFontPadding="false"
             android:textColor="#fff"
             android:textSize="14sp"
-            android:fontFamily="@font/antennawgl_medium"
             tools:text="发送中" />
     </LinearLayout>
-
 </FrameLayout>

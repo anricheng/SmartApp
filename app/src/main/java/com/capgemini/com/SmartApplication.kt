@@ -1,5 +1,7 @@
 package com.capgemini.com
 
+import android.content.Context
+import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.capgemini.lib_common.base.BaseApplication
 import com.capgemini.lib_common.extendtions.isTrue
@@ -11,5 +13,10 @@ class SmartApplication: BaseApplication() {
         super.onCreate()
         BuildConfig.DEBUG.isTrue {  ARouter.openDebug() }
         ARouter.init(this)
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
     }
 }

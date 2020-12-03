@@ -1,10 +1,10 @@
-package com.capgemini.lib_common.widget
+package com.capgemini.lib_widget.loading
 
 import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.capgemini.lib_common.R
+import com.capgemini.lib_widget.R
 
 internal class LoadingView : AppCompatImageView {
     private var mRotateDegrees = 0f
@@ -23,7 +23,7 @@ internal class LoadingView : AppCompatImageView {
     }
 
     private fun init() {
-        setImageResource(R.drawable.common_ic_loading)
+        setImageResource(R.drawable.ic_loading)
         mFrameTime = 1500 / 360
         mUpdateViewRunnable = object : Runnable {
             override fun run() {
