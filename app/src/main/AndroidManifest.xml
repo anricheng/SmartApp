@@ -29,7 +29,7 @@
             android:name="design_height_in_dp"
             android:value="667"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

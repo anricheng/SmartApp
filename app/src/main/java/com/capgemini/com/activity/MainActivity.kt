@@ -1,6 +1,8 @@
-package com.capgemini.com
+package com.capgemini.com.activity
 
 import androidx.activity.viewModels
+import com.capgemini.com.viewmodel.MainActivityViewModel
+import com.capgemini.com.R
 import com.capgemini.com.databinding.ActivityMainBinding
 import com.capgemini.lib_common.base.BaseDataBindingActivity
 import com.capgemini.lib_common.extendtions.toastSt
@@ -16,7 +18,7 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
         binding.viewModel = mViewModel
     }
 
-    override fun setupToolBarBackIcon(resId: Int)=null
+    override fun setupToolBarBackIcon(resId: Int) = null
 
     override fun setupView() {
         setupToolbarTitle("Home Page")

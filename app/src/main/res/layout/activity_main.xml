@@ -7,59 +7,46 @@
 
         <variable
             name="viewModel"
-            type="com.capgemini.com.MainActivityViewModel" />
+            type="com.capgemini.com.viewmodel.MainActivityViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:orientation="vertical"
+        tools:context=".activity.MainActivity">
 
-       <include layout="@layout/include_toolbar"/>
+        <include layout="@layout/include_toolbar" />
 
         <Button
-            android:id="@+id/bt"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="click to jump"
             android:fontFamily="@font/antennawgl_semibold"
+            android:gravity="center"
+            android:text="goToProfileModule"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:throttleFirstClick="@{() -> viewModel.updateTask()}" />
+            app:throttleFirstClick="@{() -> viewModel.navigateToProfileModule()}" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/second"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center"
-            android:fontFamily="@font/antennawgl_semibold"
-            android:textColor="@color/white"
-            android:text="This is another text style"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bt" />
-
-        <EditText
-            android:id="@+id/input"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:fontFamily="@font/antennawgl_semibold"
-            android:text="@={viewModel.taskId}"
-            app:addTextChangedListener="@{viewModel.textWatcher}"
-            app:layout_constraintTop_toBottomOf="@+id/second" />
 
         <Button
-            android:text="This a button"
-            android:fontFamily="@font/antennawgl_semibold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="50dp"
+            android:fontFamily="@font/antennawgl_semibold"
+            android:gravity="center"
+            android:text="goToSampleModule"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:throttleFirstClick="@{() -> viewModel.navigateToSampleModule()}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 </layout>

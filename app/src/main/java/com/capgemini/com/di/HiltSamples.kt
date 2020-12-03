@@ -1,4 +1,4 @@
-package com.capgemini.com
+package com.capgemini.com.di
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity

@@ -4,6 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
+boolean isBuildModuleProfile = project.hasProperty('isBuildModuleProfile') ? project.property('isBuildModuleProfile').toBoolean() : true
+boolean isBuildModuleSample = project.hasProperty('isBuildModuleSample') ? project.property('isBuildModuleSample').toBoolean() : true
+
+def isBuildAll = isBuildModuleSample && isBuildModuleProfile
+
+
+
 android {
     compileSdkVersion android_config["compileSdkVersion"]
     buildToolsVersion android_config["buildToolsVersion"]
@@ -16,6 +23,7 @@ android {
         versionName android_config["versionName"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        buildConfigField 'boolean', 'UNI_APP', isBuildAll.toString()
 
         kapt {
             arguments {
@@ -46,7 +54,6 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':lib_communication')
     implementation android_dependencies["constraintlayout"]
     implementation android_dependencies["hilt-lifecycle-viewmodel"]
     implementation android_dependencies["hilt-android"]
@@ -58,4 +65,5 @@ dependencies {
 
     kapt third_libs["arouter-compiler"]
     implementation project(path: ':module_profile')
+    implementation project(path: ':module_sample')
 }

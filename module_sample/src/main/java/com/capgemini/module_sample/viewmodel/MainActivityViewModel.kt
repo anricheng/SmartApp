@@ -1,4 +1,4 @@
-package com.capgemini.com
+package com.capgemini.module_sample.viewmodel
 
 import android.text.Editable
 import androidx.hilt.lifecycle.ViewModelInject
@@ -7,8 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capgemini.database.entity.TaskEntity
-import com.capgemini.lib_base.arouter.NavigationHelper
-import com.capgemini.lib_base.arouter.ProfileModuleARouterPath.Companion.PROFILE_LOGIN
 import com.capgemini.lib_common.utils.SimpleTextWatcher
 import com.capgemini.repository.MainRepository
 import kotlinx.coroutines.launch
@@ -27,10 +25,6 @@ class MainActivityViewModel @ViewModelInject constructor(private val mainReposit
                 mainRepository.getTask(taskId.value!!)
             }
         }
-    }
-
-    fun updateTask() {
-        NavigationHelper.navigation(PROFILE_LOGIN)
     }
 }
 
