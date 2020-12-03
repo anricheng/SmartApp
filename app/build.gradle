@@ -1,3 +1,6 @@
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -6,9 +9,9 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 boolean isBuildModuleProfile = project.hasProperty('isBuildModuleProfile') ? project.property('isBuildModuleProfile').toBoolean() : true
 boolean isBuildModuleSample = project.hasProperty('isBuildModuleSample') ? project.property('isBuildModuleSample').toBoolean() : true
+boolean isBuildModuleNetworkConfig = project.hasProperty('isBuildModuleNetworkConfig') ? project.property('isBuildModuleNetworkConfig').toBoolean() : true
 
 def isBuildAll = isBuildModuleSample && isBuildModuleProfile
-
 
 
 android {
@@ -62,8 +65,35 @@ dependencies {
     implementation android_dependencies["appcompat"]
     implementation android_dependencies["recyclerview"]
     implementation android_dependencies["multidex"]
-
     kapt third_libs["arouter-compiler"]
-    implementation project(path: ':module_profile')
-    implementation project(path: ':module_sample')
+
+    /*********************模块是否参加编译逻辑******************************/
+
+    if (isBuildModuleProfile) {
+        implementation project(path: ':module_profile')
+    }
+
+    if (isBuildModuleSample) {
+        implementation project(path: ':module_sample')
+    }
+
+    if (isBuildModuleNetworkConfig) {
+        implementation project(path: ':lib_network_config')
+    }
+}
+
+
+static def getDateTime() {
+    DateFormat df = new SimpleDateFormat("YYMMddHHmm")
+
+    return df.format(new Date())
+}
+
+/*******************gradle 编译优化**************************/
+
+/*1.移除不必要的task,降低编译时间*/
+tasks.whenTaskAdded { task ->
+    if (task.name.contains("Lint") || task.name.contains("mockableAndroidJar") || task.name.contains("UnitTest") || task.name.contains("AndroidTest")) {
+        task.enabled = false
+    }
 }
