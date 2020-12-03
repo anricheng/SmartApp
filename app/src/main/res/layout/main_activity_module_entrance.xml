@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.capgemini.com.viewmodel.MainActivityViewModel" />
+            type="com.capgemini.com.viewmodel.ModuleEntranceViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.MainActivity">
+        tools:context=".activity.ModuleEntranceActivity">
 
         <include layout="@layout/include_toolbar" />
 

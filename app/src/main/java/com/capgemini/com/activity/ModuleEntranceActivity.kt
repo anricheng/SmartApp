@@ -1,17 +1,17 @@
 package com.capgemini.com.activity
 
 import androidx.activity.viewModels
-import com.capgemini.com.viewmodel.MainActivityViewModel
 import com.capgemini.com.R
-import com.capgemini.com.databinding.ActivityMainBinding
+import com.capgemini.com.databinding.MainActivityModuleEntranceBinding
+import com.capgemini.com.viewmodel.ModuleEntranceViewModel
 import com.capgemini.lib_common.base.BaseDataBindingActivity
 import com.capgemini.lib_common.extendtions.toastSt
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
+class ModuleEntranceActivity : BaseDataBindingActivity<MainActivityModuleEntranceBinding>() {
 
-    private val mViewModel by viewModels<MainActivityViewModel>()
+    private val mViewModel by viewModels<ModuleEntranceViewModel>()
 
     override fun setupViewModel() {
         super.setupViewModel()
@@ -21,12 +21,12 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
     override fun setupToolBarBackIcon(resId: Int) = null
 
     override fun setupView() {
-        setupToolbarTitle("Home Page")
-        setupToolbarRightSubtitle("subtitle") {
-            toastSt("THis is just a sample test")
+        setupToolbarTitle("测试主页")
+        setupToolbarRightSubtitle("QA_VERSION") {
+            toastSt("仅供测试 请勿用于非法 ")
         }
         setupToolbarBackground(com.capgemini.lib_common.R.color.colorPrimary)
     }
 
-    override fun getLayoutId(): Int = R.layout.activity_main
+    override fun getLayoutId(): Int = R.layout.main_activity_module_entrance
 }
