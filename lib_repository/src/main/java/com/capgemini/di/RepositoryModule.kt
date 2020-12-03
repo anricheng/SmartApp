@@ -3,7 +3,8 @@ package com.capgemini.di
 import android.content.Context
 import androidx.room.Room
 import com.capgemini.database.SmartDataBase
-import com.capgemini.repository.MainRepository
+import com.capgemini.http.RetrofitManager
+import com.capgemini.repository.SampleRepository1
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +18,7 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideMainRepository(  dataBase: SmartDataBase) = MainRepository(dataBase.taskDao())
+    fun provideMainRepository(dataBase: SmartDataBase) = SampleRepository1(dataBase.taskDao())
 
 
     @Singleton
@@ -28,5 +29,12 @@ class RepositoryModule {
             SmartDataBase::class.java,
             "Tasks.db"
         ).build()
+    }
+
+
+    @Singleton
+    @Provides
+    fun provideRetrofitManager(@ApplicationContext context: Context): RetrofitManager {
+        return RetrofitManager(context)
     }
 }

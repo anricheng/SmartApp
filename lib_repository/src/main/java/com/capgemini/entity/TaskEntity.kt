@@ -1,9 +1,9 @@
-package com.capgemini.database.entity
+package com.capgemini.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.UUID
+import java.util.*
 
 @Entity(tableName = "tasks")
 data class TaskEntity @JvmOverloads constructor(

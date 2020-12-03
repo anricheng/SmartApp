@@ -1,3 +1,3 @@
-package com.capgemini.http
+package com.capgemini.entity
 
 data class BaseRequest(val userId:String="")

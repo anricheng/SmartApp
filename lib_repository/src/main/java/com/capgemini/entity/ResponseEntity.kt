@@ -1,4 +1,4 @@
-package com.capgemini.http
+package com.capgemini.entity
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
