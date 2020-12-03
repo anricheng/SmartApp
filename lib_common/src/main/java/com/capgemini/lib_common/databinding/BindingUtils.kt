@@ -58,11 +58,11 @@ fun clearOnFocusAndDispatch(view: EditText, listener: View.OnFocusChangeListener
         val textView = focusedView as TextView
         if (hasFocus) {
             // Delete contents of the EditText if the focus entered.
-            view.setTag(R.id.previous_value, textView.text)
+            view.setTag(R.id.previousValue, textView.text)
             textView.text = ""
         } else {
             if (textView.text.isEmpty()) {
-                val tag: CharSequence? = textView.getTag(R.id.previous_value) as CharSequence
+                val tag: CharSequence? = textView.getTag(R.id.previousValue) as CharSequence
                 textView.text = tag ?: ""
             }
             // If the focus left, update the listener

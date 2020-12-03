@@ -3,7 +3,7 @@
 <resources>
     <item
         type="id"
-        name="previous_value" />
+        name="previousValue" />
     <item
         type="id"
         name="hasBeenAnimated" />

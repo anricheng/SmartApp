@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.capgemini.lib_common.R
 import com.capgemini.lib_common.extendtions.*
-import kotlinx.android.synthetic.main.common_include_toolbar.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 
 
 abstract class BaseFragment : Fragment(), IBase {
@@ -48,7 +48,7 @@ abstract class BaseFragment : Fragment(), IBase {
         setupImmersionBar()
         setupListener()
         setupView()
-        commonToolbar.notNull { toolbar ->
+        toolbar.notNull { toolbar ->
             setupToolBarBackIcon().notNull {
                 toolbar.setNavigationIcon(it!!)
                 mContainerActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -75,14 +75,14 @@ abstract class BaseFragment : Fragment(), IBase {
     protected open fun setupToolBarBackIcon(@DrawableRes resId: Int = R.drawable.ic_back): Int? = resId
 
     protected open fun setupToolbarRightSubtitle(text: String, listener: View.OnClickListener) {
-        commonToolbarRightSubtitle.apply {
+        toolbarSubtitle.apply {
             this.text = text
             this.throttleFirstClick(listener =listener)
         }
     }
 
     protected open fun setupToolbarTitle(text: String) {
-        commonToolbarTitle.notNull { it.text = text }
+        toolbarTitle.notNull { it.text = text }
     }
 
     protected open fun setupToolbarBackground(
@@ -90,9 +90,9 @@ abstract class BaseFragment : Fragment(), IBase {
         @DrawableRes drawableId: Int = -1
     ) {
         (drawableId != -1).isTrue {
-            commonToolbar.setBackgroundE(drawableId)
+            toolbar.setBackgroundE(drawableId)
         }.otherwise {
-            commonToolbar.setBackgroundColorE(colorId)
+            toolbar.setBackgroundColorE(colorId)
         }
     }
 

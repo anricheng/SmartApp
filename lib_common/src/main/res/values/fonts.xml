@@ -1,6 +1,6 @@
 <resources>
-    <string name="common_typeface_antennawgl_bold">AntennaWGL-Bold.otf</string>
-    <string name="common_typeface_antennawgl_light">AntennaWGL-Light.otf</string>
-    <string name="common_typeface_antennawgl_medium">AntennaWGL-Medium.otf</string>
-    <string name="common_typeface_antennawgl_regular">AntennaWGL-Regular.otf</string>
+    <string name="typefaceAntennawglBold">AntennaWGL-Bold.otf</string>
+    <string name="typefaceAntennawglLight">AntennaWGL-Light.otf</string>
+    <string name="typefaceAntennawglMedium">AntennaWGL-Medium.otf</string>
+    <string name="typefaceAntennawglRegular">AntennaWGL-Regular.otf</string>
 </resources>

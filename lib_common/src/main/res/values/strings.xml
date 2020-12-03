@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="common_loading_content">加载中</string>
+    <string name="loadingContent">加载中</string>
 
 </resources>

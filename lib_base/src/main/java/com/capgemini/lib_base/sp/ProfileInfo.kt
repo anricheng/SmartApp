@@ -9,8 +9,8 @@ object ProfileInfo {
     var accessToken: String by PreferenceDelegate(prefName)
     var refreshToken: String by PreferenceDelegate(prefName)
     var isFirstOpen: Boolean by PreferenceDelegate(prefName)
-    var zhou: Zhou by PreferenceDelegate(prefName)
+    var dataClassSample: DataClassSample by PreferenceDelegate(prefName)
 }
 
 
-data class Zhou(val zhou: String = "zhou", val hai: String = "hai")
+data class DataClassSample(val data1: String = "zhou", val data2: String = "hai")

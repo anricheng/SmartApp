@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.ActivityUtils
 import com.capgemini.lib_base.arouter.NavigationHelper
 import com.capgemini.lib_base.arouter.ProfileModuleARouterPath.Companion.PROFILE_SAMPLE
+import com.capgemini.lib_base.sp.DataClassSample
 import com.capgemini.lib_base.sp.ProfileInfo
-import com.capgemini.lib_base.sp.Zhou
 import com.capgemini.lib_common.extendtions.*
 import com.capgemini.lib_common.widget.Loading
 import kotlinx.coroutines.Dispatchers
@@ -69,8 +69,8 @@ class LoginViewModel : ViewModel() {
             Loading.show(ActivityUtils.getTopActivity())
             delay(1000)
             Loading.dismiss(ActivityUtils.getTopActivity())
-            ProfileInfo.zhou = Zhou("海峰好帅")
-            ActivityUtils.getTopActivity().toastLg("模拟登陆成功${ProfileInfo.zhou.zhou}")
+            ProfileInfo.dataClassSample = DataClassSample("海峰好帅")
+            ActivityUtils.getTopActivity().toastLg("模拟登陆成功${ProfileInfo.dataClassSample.data1}")
             ProfileInfo.userName = userName.value.toString()
             ProfileInfo.password = password.value.toString()
         }
