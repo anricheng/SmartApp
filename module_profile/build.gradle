@@ -6,15 +6,14 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
-    resourcePrefix "profile_"
+    compileSdkVersion android_config["compileSdkVersion"]
+    buildToolsVersion android_config["buildToolsVersion"]
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion android_config["minSdkVersion"]
+        targetSdkVersion android_config["targetSdkVersion"]
+        versionCode android_config["versionCode"]
+        versionName android_config["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

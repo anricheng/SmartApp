@@ -21,14 +21,6 @@ afterEvaluate {
                 buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
                 dimension 'environment'
             }
-
-//            performance {
-//                dimension 'performance'
-//            }
-//
-//            nonperformance {
-//                dimension 'performance'
-//            }
         }
     }
 
@@ -39,4 +31,127 @@ afterEvaluate {
     }
 }
 
+ext {
+    kotlin_version = "1.4.10"
+    hilt = "2.28-alpha"
+    android_support_version = '28.0.0'
+    leakcanary_version = '1.5.4'
+    glide_version = '4.9.0'
+    retrofit2_version = '2.6.1'
+    gson_version = '2.8.5'
+    okhttp_version = '3.12.0'
+    carNetLib_version = 'v0.42'
+    okdownload_version = '1.0.5'
+    anko_version = '0.10.8'
+    kw_name = 'KWAuthSDK_1.0.1'
 
+    android_config = [compileSdkVersion: 30,
+                      buildToolsVersion: "30.0.2",
+                      applicationId    : "com.capgemini.com",
+                      minSdkVersion    : 21,
+                      targetSdkVersion : 30,
+                      versionCode      : 1,
+                      versionName      : "1.0"
+    ]
+
+    android_dependencies = [
+            "constraintlayout"        : "androidx.constraintlayout:constraintlayout:2.0.4",
+            "hilt-android-compiler"   : "com.google.dagger:hilt-android-compiler:2.29.1-alpha",
+            "hilt-android"            : "com.google.dagger:hilt-android:2.29.1-alpha",
+            "hilt-lifecycle-viewmodel": "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02",
+            "hilt-compiler"           : "androidx.hilt:hilt-compiler:1.0.0-alpha02",
+            "recyclerview"            : "androidx.recyclerview:recyclerview:1.2.0-alpha06",
+            "multidex"                : "com.android.support:multidex:1.0.3",
+            "appcompat"               : "androidx.appcompat:appcompat:1.3.0-alpha02"
+    ]
+
+    third_libs = [
+            "leakcanary-android"           : "com.squareup.leakcanary:leakcanary-android:${leakcanary_version}",
+            "leakcanary-android-no-op"     : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanary_version}",
+
+            "glide"                        : "com.github.bumptech.glide:glide:${glide_version}",
+            "glide_compiler"               : "com.github.bumptech.glide:compiler:${glide_version}",
+            "gson"                         : "com.google.code.gson:gson:${gson_version}",
+
+            "retrofit2"                    : "com.squareup.retrofit2:retrofit:${retrofit2_version}",
+            "converter-gson"               : "com.squareup.retrofit2:converter-gson:${retrofit2_version}",
+            "adapter-rxjava2"              : "com.squareup.retrofit2:adapter-rxjava2:${retrofit2_version}",
+            "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:${okhttp_version}",
+            "converter-jackson"            : "com.squareup.retrofit2:converter-jackson:${retrofit2_version}",
+            "converter-simplexml"          : "com.squareup.retrofit2:converter-simplexml:${retrofit2_version}",
+
+            "rxjava2"                      : "io.reactivex.rxjava2:rxjava:2.1.6",
+            "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:2.0.1",
+            "eventbus"                     : "org.greenrobot:eventbus:3.1.1",
+            "barlibrary"                   : 'com.gyf.barlibrary:barlibrary:2.3.0',
+
+            "arouter-api"                  : "com.alibaba:arouter-api:1.2.2",
+            "arouter-compiler"             : 'com.alibaba:arouter-compiler:1.2.2',
+            "easypermissions"              : "pub.devrel:easypermissions:2.0.1",
+            "FlycoTabLayout"               : "com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar",
+            "okio"                         : "com.squareup.okio:okio:1.14.0",
+            "swipebacklayout"              : "cn.bingoogolapple:bga-swipebacklayout:1.2.1@aar",
+            "twinklingrefreshlayout"       : "com.lcodecorex:tkrefreshlayout:1.0.7",
+
+            "BaseRecyclerViewAdapterHelper": 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34',
+            "dagger"                       : 'com.google.dagger:dagger:2.16',
+            "dagger-compiler"              : 'com.google.dagger:dagger-compiler:2.16',
+            "banner"                       : 'com.youth.banner:banner:1.4.10',
+            "SmartRefreshLayout"           : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0',
+            "turbo-recyclerview-helper"    : 'cc.solart:turbo-recyclerview-helper:1.0.3-beta',
+            "rxpermissions"                : 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar',
+            "amap-location"                : 'com.amap.api:location:latest.integration',
+            "amap-3dmap"                   : 'com.amap.api:3dmap:latest.integration',
+            "amap-3dmap-navi"              : 'com.amap.api:navi-3dmap:latest.integration',
+            "amap-3dmap-search"            : 'com.amap.api:search:latest.integration',
+            "EasyPopup"                    : 'com.github.zyyoona7:EasyPopup:1.1.1',
+            "multidex"                     : 'androidx.multidex:multidex:2.0.0',
+            "wheel-picker"                 : 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2',
+            "greendao"                     : 'org.greenrobot:greendao:3.2.2',
+            "greendao-generator"           : 'org.greenrobot:greendao-generator:3.2.2',
+            "alipush"                      : 'com.aliyun.ams:alicloud-android-push:3.1.12',
+            "alipush_third"                : 'com.aliyun.ams:alicloud-android-third-push:3.1.0@aar',
+            "alipush_third-huawei"         : 'com.aliyun.ams:huawei-push:2.6.3.305',
+            "alipush_third-huaweibase"     : 'com.aliyun.ams:huawei-push-base:2.6.3.305',
+            "android.joda"                 : 'net.danlew:android.joda:2.9.9.4',
+            "joda-convert"                 : 'org.joda:joda-convert:2.2.0',
+            "wxpay"                        : 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+',
+            "PinnedSectionItemDecoration"  : 'com.oushangfeng:PinnedSectionItemDecoration:1.3.2',
+
+            "commons-codec"                : 'commons-codec:commons-codec:1.6',
+            "spongycastle-core"            : 'com.madgag.spongycastle:core:1.54.0.0',
+            "spongycastle-prov"            : 'com.madgag.spongycastle:prov:1.54.0.0',
+            "spongycastle-pkix"            : 'com.madgag.spongycastle:pkix:1.54.0.0',
+            "lottie"                       : 'com.airbnb.android:lottie:2.7.0',
+            "kandroid"                     : 'com.pawegio.kandroid:kandroid:0.8.5@aar',
+
+            "blockcanary-android"          : 'com.github.markzhai:blockcanary-android:1.5.0',
+            "blockcanary-no-op"            : 'com.github.markzhai:blockcanary-no-op:1.5.0',
+            "rxbinding2"                   : 'com.jakewharton.rxbinding2:rxbinding:2.0.0',
+            "chuckDebug"                   : 'com.readystatesoftware.chuck:library:1.1.0',
+            "chuckRelease"                 : 'com.readystatesoftware.chuck:library-no-op:1.1.0',
+            "videoplayer"                  : 'cn.jzvd:jiaozivideoplayer:7.4.2',
+            "videocache"                   : 'com.danikula:videocache:2.7.0',
+            "videoCore"                    : 'com.google.android.exoplayer:exoplayer:2.9.1',
+            "calender-view"                : 'com.haibin:calendarview:3.5.9',
+            "joor-java-6"                  : 'org.jooq:joor-java-6:0.9.7',
+            "MPAndroidChart"               : 'com.github.PhilJay:MPAndroidChart:v3.1.0',
+            "sensor-sdk"                   : 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:4.2.5',
+            "guava-28.2-android"           : 'com.google.guava:guava:28.2-android',
+            "skin-support"                 : 'skin.support:skin-support:3.1.1',
+            "skin-support-appcompat"       : 'skin.support:skin-support-appcompat:4.0.1',
+            "skin-support-design"          : 'skin.support:skin-support-design:3.1.1',
+            "skin-support-constraint"      : 'skin.support:skin-support-constraint-layout:3.1.1',
+            "zbar"                         : 'com.yanzhenjie.zbar:zbar:1.0.0',
+            "walle"                        : 'com.meituan.android.walle:library:1.1.6',
+            'universal_imageloader'        : 'com.nostra13.universalimageloader:universal-image-loader:1.9.5',
+            'LabelsView'                   : 'com.github.donkingliang:LabelsView:1.6.1',
+            'autoSize'                     : 'me.jessyan:autosize:1.2.1',
+    ]
+
+    kotlin_libs = [
+            "kotlin-stdlib-jdk7"        : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            "kotlinx-coroutines-android": 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1',
+            "jackson-module-kotlin"     : "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4",
+    ]
+}
