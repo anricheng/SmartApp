@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/antennawgl_semibolditalic"
+            android:fontFamily="@font/antennawgl_regular"
             android:gravity="center_horizontal"
             android:includeFontPadding="false"
             android:textColor="#fff"
