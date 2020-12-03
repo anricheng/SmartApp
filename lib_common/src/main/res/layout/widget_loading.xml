@@ -12,7 +12,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_gravity="center"
-        android:background="@drawable/common_shape_round_toast_background"
+        android:background="@drawable/shape_round_toast_background"
         android:gravity="center"
         android:orientation="vertical">
 

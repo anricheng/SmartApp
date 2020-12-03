@@ -46,7 +46,7 @@ object Loading {
     fun show(activity: Activity) {
         show(
             activity.findViewById<View>(android.R.id.content),
-            activity.getString(R.string.common_loading_content),
+            activity.getString(R.string.loadingContent),
             false,
             true
         )
@@ -59,7 +59,7 @@ object Loading {
     fun show(activity: Activity=ActivityUtils.getTopActivity(), justIcon: Boolean) {
         show(
             activity.findViewById<View>(android.R.id.content),
-            if (justIcon) null else activity.getString(R.string.common_loading_content),
+            if (justIcon) null else activity.getString(R.string.loadingContent),
             false,
             true
         )
@@ -72,7 +72,7 @@ object Loading {
     fun show(root: View, justIcon: Boolean) {
         show(
             root,
-            if (justIcon) null else root.resources.getString(R.string.common_loading_content),
+            if (justIcon) null else root.resources.getString(R.string.loadingContent),
             false,
             true
         )
@@ -87,7 +87,7 @@ object Loading {
     fun show(root: View, justIcon: Boolean, cancelable: Boolean, holdable: Boolean) {
         show(
             root,
-            if (justIcon) null else root.resources.getString(R.string.common_loading_content),
+            if (justIcon) null else root.resources.getString(R.string.loadingContent),
             cancelable,
             holdable
         )
@@ -99,7 +99,7 @@ object Loading {
      * @param holdable   loading是否拦截事件
      */
     fun show(root: View, cancelable: Boolean, holdable: Boolean) {
-        show(root, root.resources.getString(R.string.common_loading_content), cancelable, holdable)
+        show(root, root.resources.getString(R.string.loadingContent), cancelable, holdable)
     }
     /**
      * @param root       当前展示loading的view
@@ -113,7 +113,7 @@ object Loading {
     @JvmOverloads
     fun show(
         root: View,
-        message: String? = root.resources.getString(R.string.common_loading_content),
+        message: String? = root.resources.getString(R.string.loadingContent),
         cancelable: Boolean = false,
         holdable: Boolean = true
     ) {
@@ -205,7 +205,7 @@ object Loading {
             count = AtomicInteger(0)
             isShowing = AtomicBoolean(false)
             setBackgroundColor(Color.TRANSPARENT)
-            LayoutInflater.from(context).inflate(R.layout.common_widget_loading, this)
+            LayoutInflater.from(context).inflate(R.layout.widget_loading, this)
             mMessage = findViewById(R.id.tv_message)
             outside = findViewById(R.id.touch_outside)
             //加上一个margin toolbar + status bar 的高度，避免toolbar 返回键不起作用，其中 toolbar 高度是50dp,设置一个60作为buffer
@@ -267,8 +267,8 @@ object Loading {
         }
 
         companion object {
-            private val CANCELABLE = R.id.common_loadingCancelable
-            private val HOLDABLE = R.id.common_loadingHoldable
+            private val CANCELABLE = R.id.loadingCancelable
+            private val HOLDABLE = R.id.loadingHoldable
         }
 
         init {
