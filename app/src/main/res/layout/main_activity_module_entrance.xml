@@ -21,7 +21,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:fontFamily="@font/antennawgl_semibold"
+            android:fontFamily="@font/antennawgl_extralight"
             android:gravity="center"
             android:text="goToProfileModule"
             android:textAllCaps="false"
