@@ -14,7 +14,6 @@ class ModuleEntranceActivity : BaseDataBindingActivity<MainActivityModuleEntranc
     private val mViewModel by viewModels<ModuleEntranceViewModel>()
 
     override fun setupViewModel() {
-        super.setupViewModel()
         binding.viewModel = mViewModel
     }
 

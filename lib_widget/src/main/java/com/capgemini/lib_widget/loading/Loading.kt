@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.annotation.StringRes
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ConvertUtils
@@ -44,6 +45,18 @@ object Loading {
      * @param activity 当前展示loading的activity
      */
     fun show(activity: Activity) {
+        show(
+            activity.findViewById<View>(android.R.id.content),
+            activity.getString(R.string.loadingContent),
+            false,
+            true
+        )
+    }
+
+    /**
+     * @param activity 当前展示loading的activity
+     */
+    fun show(activity: Activity=ActivityUtils.getTopActivity(),@StringRes content:Int = R.string.loadingContent) {
         show(
             activity.findViewById<View>(android.R.id.content),
             activity.getString(R.string.loadingContent),
@@ -165,7 +178,7 @@ object Loading {
         }
     }
 
-    fun dismiss(root: Activity) {
+    fun dismiss(root: Activity=ActivityUtils.getTopActivity()) {
         dismiss(root.findViewById<View>(android.R.id.content))
     }
 

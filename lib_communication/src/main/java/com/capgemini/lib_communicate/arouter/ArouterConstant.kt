@@ -1,10 +1,9 @@
-package com.capgemini.lib_base.arouter
+package com.capgemini.lib_communicate.arouter
 
-import com.capgemini.lib_base.arouter.IProviderARouterPath.Companion.PROVIDER_PROFILE_MODULE
+import com.capgemini.lib_communicate.arouter.IProviderARouterPath.Companion.PROVIDER_PROFILE_MODULE
 
-/**
- * 登录拦截器所需
- */
+/*****************************************ARouter login interceptor********************************/
+
 val interceptorPaths = arrayListOf<String>().apply {
     add(PROVIDER_PROFILE_MODULE)
 }
@@ -12,9 +11,9 @@ val ambiguousInterceptorPaths = arrayListOf<String>().apply {
     add("nothing currently")
 }
 
-/**
- * ARouter 跳转携带的参数key以及value的说明
- */
+
+/*****************************************ARouter parameters **************************************/
+
 interface RouterExtra {
     companion object {
         const val SELECTED_TAB_INDEX = "selected_tab_index"
@@ -26,9 +25,8 @@ interface RouterExtra {
     }
 }
 
-/**
- * ARouter IProvider 相关的路径
- */
+/*****************************************ARouter IProvider ***************************************/
+
 interface IProviderARouterPath {
     companion object {
         /**
@@ -37,6 +35,9 @@ interface IProviderARouterPath {
         const val PROVIDER_PROFILE_MODULE = "/provider/profile"
     }
 }
+
+/*****************************************ARouter Activity path ***********************************/
+
 
 /**
  * Profile module ARouter的路径
@@ -49,5 +50,18 @@ interface ProfileModuleARouterPath {
          */
         const val PROFILE_LOGIN = "/profile/login"
         const val PROFILE_SAMPLE = "/profile/sample"
+    }
+}
+
+
+
+/**
+ * Profile module ARouter的路径
+ */
+interface SampleModuleARouterPath {
+    companion object {
+        const val SAMPLE_MAIN = "/sample/main"
+        const val SAMPLE_FRAGMENT = "/sample/fragment"
+        const val SAMPLE_LOGIN = "/sample/login"
     }
 }

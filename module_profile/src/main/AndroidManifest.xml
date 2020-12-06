@@ -3,8 +3,7 @@
     package="com.capgemini.module_profile">
 
     <application>
-        <activity android:name=".activity.ProfileLoginActivity"/>
-        <activity android:name=".activity.ProfileFragmentActivity"/>
+
     </application>
 
 </manifest>

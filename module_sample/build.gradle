@@ -8,6 +8,7 @@ apply plugin: 'dagger.hilt.android.plugin'
 android {
     compileSdkVersion android_config["compileSdkVersion"]
     buildToolsVersion android_config["buildToolsVersion"]
+    resourcePrefix "simple"
 
     defaultConfig {
         minSdkVersion android_config["minSdkVersion"]
@@ -30,6 +31,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -37,6 +46,7 @@ dependencies {
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     //hilt
     kapt 'com.google.dagger:hilt-android-compiler:2.29.1-alpha'
     implementation 'com.google.dagger:hilt-android:2.29.1-alpha'
@@ -45,4 +55,15 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
     implementation 'androidx.core:core-ktx:1.5.0-alpha05'
     kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+
+    implementation android_dependencies["constraintlayout"]
+    implementation android_dependencies["hilt-lifecycle-viewmodel"]
+    implementation android_dependencies["hilt-android"]
+    kapt android_dependencies["hilt-android-compiler"]
+    kapt android_dependencies["hilt-compiler"]
+    implementation android_dependencies["appcompat"]
+    implementation android_dependencies["recyclerview"]
+    implementation android_dependencies["multidex"]
+    kapt third_libs["arouter-compiler"]
 }

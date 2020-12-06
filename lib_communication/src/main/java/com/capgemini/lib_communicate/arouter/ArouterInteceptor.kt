@@ -1,4 +1,4 @@
-package com.capgemini.lib_base.arouter
+package com.capgemini.lib_communicate.arouter
 
 import android.content.Context
 import com.alibaba.android.arouter.facade.Postcard
@@ -6,8 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
 import com.alibaba.android.arouter.launcher.ARouter
-import com.capgemini.lib_base.arouter.IProviderARouterPath.Companion.PROVIDER_PROFILE_MODULE
-import com.capgemini.lib_base.arouter.RouterExtra.Companion.IGNORE_LOGIN
+import com.capgemini.lib_communicate.arouter.RouterExtra.Companion.IGNORE_LOGIN
 import com.capgemini.lib_common.extendtions.isTrue
 import com.capgemini.lib_common.extendtions.notNull
 import com.capgemini.lib_common.extendtions.notNullOrEmpty

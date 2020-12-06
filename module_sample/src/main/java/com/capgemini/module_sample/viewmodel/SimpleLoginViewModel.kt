@@ -1,25 +1,23 @@
-package com.capgemini.module_profile.viewmodel
+package com.capgemini.module_sample.viewmodel
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.blankj.utilcode.util.ActivityUtils
-import com.capgemini.lib_base.arouter.NavigationHelper
-import com.capgemini.lib_base.arouter.ProfileModuleARouterPath.Companion.PROFILE_SAMPLE
-import com.capgemini.lib_base.sp.DataClassSample
-import com.capgemini.lib_base.sp.ProfileInfo
 import com.capgemini.lib_common.extendtions.*
+import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_FRAGMENT
+import com.capgemini.lib_communicate.sp.DataClassSample
+import com.capgemini.lib_communicate.sp.ProfileInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import loading.Loading
 
-class LoginViewModel : ViewModel() {
+class SimpleLoginViewModel : ViewModel() {
     private var userNameLengthCount = 0
     private var passwordLengthCount = 0
 
-    val userName = MutableLiveData<String>(ProfileInfo.userName)
+    val userName = MutableLiveData(ProfileInfo.userName)
     val userNameError = MediatorLiveData<String>().apply {
         addSource(userName) {
             value = it.isValidateUseName()
@@ -35,7 +33,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    val password = MutableLiveData<String>(ProfileInfo.password)
+    val password = MutableLiveData(ProfileInfo.password)
     val passwordError = MediatorLiveData<String>().apply {
         addSource(password) {
             value = it.isValidatePassword()
@@ -61,16 +59,16 @@ class LoginViewModel : ViewModel() {
     }
 
     fun goToFragmentActivity() {
-        NavigationHelper.navigation(PROFILE_SAMPLE)
+        NavigationHelper.navigation(SAMPLE_FRAGMENT)
     }
 
     fun login() {
         viewModelScope.launch(Dispatchers.Main) {
-          Loading.show(ActivityUtils.getTopActivity())
+            showLoading()
             delay(1000)
-           Loading.dismiss(ActivityUtils.getTopActivity())
+            hideLoading()
             ProfileInfo.dataClassSample = DataClassSample("海峰好帅")
-            ActivityUtils.getTopActivity().toastLg("模拟登陆成功${ProfileInfo.dataClassSample.data1}")
+            toastLg("模拟登陆成功${ProfileInfo.dataClassSample.data1}")
             ProfileInfo.userName = userName.value.toString()
             ProfileInfo.password = password.value.toString()
         }

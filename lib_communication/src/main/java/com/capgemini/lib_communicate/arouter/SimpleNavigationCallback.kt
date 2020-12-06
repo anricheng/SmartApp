@@ -1,4 +1,4 @@
-package com.capgemini.lib_base.arouter
+package com.capgemini.lib_communicate.arouter
 
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback

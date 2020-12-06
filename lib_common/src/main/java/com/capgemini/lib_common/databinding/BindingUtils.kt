@@ -97,14 +97,12 @@ fun hideKeyboardOnInputDone(view: EditText, enabled: Boolean) {
 }
 
 
-@Suppress("unused")
 @BindingAdapter("invisibleUnless")
 fun invisibleUnless(view: View, visible: Boolean) {
     view.visibility = if (visible) View.VISIBLE else View.INVISIBLE
 }
 
 
-@Suppress("unused")
 @BindingAdapter("goneUnless")
 fun goneUnless(view: View, visible: Boolean) {
     view.visibility = if (visible) View.VISIBLE else View.GONE

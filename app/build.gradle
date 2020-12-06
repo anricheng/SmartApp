@@ -70,7 +70,7 @@ dependencies {
     /*********************模块是否参加编译逻辑******************************/
 
     if (isBuildModuleProfile) {
-        implementation project(path: ':module_profile')
+//        implementation project(path: ':module_profile')
     }
 
     if (isBuildModuleSample) {

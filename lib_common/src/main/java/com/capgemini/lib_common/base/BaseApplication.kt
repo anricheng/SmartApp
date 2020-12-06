@@ -13,4 +13,4 @@ open class BaseApplication : Application() {
     }
 }
 
-object ApplicationGlobalContext:ContextWrapper(INSTANCE)
+object GlobalApplicationContext:ContextWrapper(INSTANCE)

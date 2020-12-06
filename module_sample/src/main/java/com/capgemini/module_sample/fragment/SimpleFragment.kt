@@ -1,15 +1,15 @@
-package com.capgemini.module_profile.fragment
+package com.capgemini.module_sample.fragment
 
 import android.os.Bundle
 import com.capgemini.lib_common.base.BaseFragment
-import com.capgemini.module_profile.R
+import com.capgemini.module_sample.R
 
 
-class ProfileSampleFragment : BaseFragment() {
+class SimpleFragment : BaseFragment() {
 
     companion object {
         fun newInstance(text: String): BaseFragment {
-            return ProfileSampleFragment().apply {
+            return SimpleFragment().apply {
                 arguments = Bundle().apply {
                     putString("param", text)
                 }
@@ -17,9 +17,7 @@ class ProfileSampleFragment : BaseFragment() {
         }
     }
 
-    override fun setupToolBarBackIcon(resId: Int) = null
-
-    override fun getLayoutId() = R.layout.profile_fragment_sample
+    override fun getLayoutId() = R.layout.simple_fragment_sample
 
     override fun setupView() {
         super.setupView()

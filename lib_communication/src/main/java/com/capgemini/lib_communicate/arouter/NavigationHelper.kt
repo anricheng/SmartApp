@@ -1,4 +1,4 @@
-package com.capgemini.lib_base.arouter
+package com.capgemini.lib_communicate.arouter
 
 import android.app.Activity
 import android.content.Context

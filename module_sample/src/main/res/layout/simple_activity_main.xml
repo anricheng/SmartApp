@@ -7,31 +7,37 @@
 
         <variable
             name="viewModel"
-            type="com.capgemini.com.viewmodel.ModuleEntranceViewModel" />
+            type="com.capgemini.module_sample.viewmodel.SimpleMainActivityViewModel" />
+
     </data>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".activity.ModuleEntranceActivity">
+        tools:context=".activity.SimpleMainActivity">
 
-        <include layout="@layout/include_toolbar" />
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_bolditalic"
+            android:text="requestPermission"
+            android:textAllCaps="false"
+            android:onClick="@{()->viewModel.getPhonePermission()}"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:fontFamily="@font/antennawgl_mediumitalic"
+            android:fontFamily="@font/antennawgl_extralight"
             android:gravity="center"
-            android:text="goToSampleModule"
+            android:text="goToProfileModule"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:throttleFirstClick="@{() -> viewModel.navigateToSampleModule()}" />
+            app:throttleFirstClick="@{() -> viewModel.navigateToLogin()}" />
 
     </LinearLayout>
 </layout>

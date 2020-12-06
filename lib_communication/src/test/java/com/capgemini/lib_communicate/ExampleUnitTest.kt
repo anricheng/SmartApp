@@ -1,4 +1,4 @@
-package com.capgemini.lib_base
+package com.capgemini.lib_communicate
 
 import org.junit.Test
 

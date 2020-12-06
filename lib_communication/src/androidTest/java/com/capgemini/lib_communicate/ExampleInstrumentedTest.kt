@@ -1,4 +1,4 @@
-package com.capgemini.lib_base
+package com.capgemini.lib_communicate
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

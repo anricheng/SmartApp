@@ -1,4 +1,12 @@
-<manifest package="com.capgemini.module_sample">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.capgemini.module_sample">
 
-    /
+    <application>
+        <activity android:name=".activity.SimpleMainActivity"/>
+        <activity android:name=".activity.SimpleLoginActivity"/>
+        <activity android:name=".activity.SampleFragmentActivity"/>
+    </application>
+
+
 </manifest>
