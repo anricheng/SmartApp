@@ -18,7 +18,7 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideMainRepository(dataBase: SmartDataBase) = SampleRepository1(dataBase.taskDao())
+    fun provideMainRepository(dataBase: SmartDataBase) = SampleRepository1(dataBase.simpleEntityDao())
 
 
     @Singleton

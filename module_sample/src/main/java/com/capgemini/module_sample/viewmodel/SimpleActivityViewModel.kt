@@ -31,7 +31,6 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
     val textWatcher = object : SimpleTextWatcher() {
         override fun afterTextChanged(s: Editable) {
             viewModelScope.launch {
-                sampleRepository1.getTask(taskId.value!!)
             }
         }
     }

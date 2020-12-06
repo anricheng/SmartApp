@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.simple_activity_list.*
 class SimpleListActivity : BaseDataBindingActivity<SimpleActivityListBinding>() {
     private val viewModel by viewModels<SimpleListViewModel>()
 
-    private  val mAdapter = SimpleListAdapter()
+    private val mAdapter = SimpleListAdapter()
 
     override fun setupViewModel() {
         binding.viewmodel = viewModel
@@ -32,11 +32,12 @@ class SimpleListActivity : BaseDataBindingActivity<SimpleActivityListBinding>() 
             adapter = mAdapter
         }
 
-        viewModel.data.observe(this) {
+        viewModel.dataList.observe(this) {
             mAdapter.submitList(it)
+            recyclerView.smoothScrollToPosition(it.size - 1)
         }
 
-        setupToolbarRightSubtitle("添加数据"){
+        setupToolbarRightSubtitle("添加数据") {
             viewModel.createData()
         }
     }

@@ -1,21 +1,24 @@
 package com.capgemini.module_sample.viewmodel
 
+import android.util.Log
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.capgemini.entity.ItemData
+import androidx.lifecycle.viewModelScope
+import com.capgemini.entity.ItemEntity
+import com.capgemini.repository.SampleRepository1
+import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicInteger
 
-class SimpleListViewModel : ViewModel() {
-
-    private val _data = MutableLiveData<MutableList<ItemData>>()
-
-    val data: LiveData<MutableList<ItemData>> = _data
+class SimpleListViewModel @ViewModelInject constructor(private val repository1: SampleRepository1) :
+    ViewModel() {
+    private val count = AtomicInteger(0)
+    val dataList: LiveData<List<ItemEntity>> = repository1.getTask()
 
     fun createData() {
-        val list = ArrayList<ItemData>(30)
-        for (i in 0..30) {
-            list.add(ItemData(content = "这是第${i}个数据"))
+        viewModelScope.launch {
+            Log.d("aric",Thread.currentThread().name)
+            repository1.insertData(ItemEntity(content = "这是第${count.incrementAndGet()}条数据"))
         }
-        _data.value = list
     }
 }
