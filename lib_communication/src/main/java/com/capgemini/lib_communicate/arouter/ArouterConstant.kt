@@ -63,5 +63,6 @@ interface SampleModuleARouterPath {
         const val SAMPLE_MAIN = "/sample/main"
         const val SAMPLE_FRAGMENT = "/sample/fragment"
         const val SAMPLE_LOGIN = "/sample/login"
+        const val SAMPLE_LIST = "/sample/list"
     }
 }

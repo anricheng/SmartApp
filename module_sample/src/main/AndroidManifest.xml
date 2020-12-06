@@ -6,6 +6,7 @@
         <activity android:name=".activity.SimpleMainActivity"/>
         <activity android:name=".activity.SimpleLoginActivity"/>
         <activity android:name=".activity.SampleFragmentActivity"/>
+        <activity android:name=".activity.SimpleListActivity"/>
     </application>
 
 

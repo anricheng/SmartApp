@@ -1,7 +1,6 @@
 package com.capgemini.com.activity
 
 import androidx.activity.viewModels
-import com.capgemini.com.BuildConfig
 import com.capgemini.com.R
 import com.capgemini.com.databinding.MainActivityModuleEntranceBinding
 import com.capgemini.com.viewmodel.ModuleEntranceViewModel
@@ -26,6 +25,7 @@ class ModuleEntranceActivity : BaseDataBindingActivity<MainActivityModuleEntranc
             toastSt("仅供测试 请勿用于非法 ")
         }
         setupToolbarBackground(com.capgemini.lib_common.R.color.colorPrimary)
+
 
     }
 

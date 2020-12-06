@@ -12,9 +12,9 @@
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".activity.SimpleMainActivity">
 
         <include layout="@layout/include_toolbar" />
@@ -23,9 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/antennawgl_bolditalic"
+            android:onClick="@{()->viewModel.getPhonePermission()}"
             android:text="requestPermission"
-            android:textAllCaps="false"
-            android:onClick="@{()->viewModel.getPhonePermission()}"/>
+            android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
@@ -49,12 +49,20 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/fragmentUsingStatusBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/antennawgl_regular"
             android:onClick="@{()->viewModel.goToFragmentActivity()}"
             android:text="goToFragmentActivity"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:onClick="@{()->viewModel.navigateToListActivity()}"
+            android:text="goToListActivity"
             android:textAllCaps="false"
             android:textStyle="bold" />
 
