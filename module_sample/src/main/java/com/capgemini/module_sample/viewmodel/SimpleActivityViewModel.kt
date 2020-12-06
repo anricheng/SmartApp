@@ -14,6 +14,7 @@ import com.capgemini.lib_common.extendtions.requestPermission
 import com.capgemini.lib_common.extendtions.toastLg
 import com.capgemini.lib_common.utils.SimpleTextWatcher
 import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
 import com.capgemini.repository.SampleRepository1
 import kotlinx.coroutines.launch
@@ -43,5 +44,10 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
     fun navigateToLogin(){
         NavigationHelper.navigation(SAMPLE_LOGIN)
     }
+
+    fun goToFragmentActivity() {
+        NavigationHelper.navigation(SampleModuleARouterPath.SAMPLE_FRAGMENT)
+    }
+
 }
 

@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capgemini.lib_common.extendtions.*
-import com.capgemini.lib_communicate.arouter.NavigationHelper
-import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_FRAGMENT
 import com.capgemini.lib_communicate.sp.DataClassSample
 import com.capgemini.lib_communicate.sp.ProfileInfo
 import kotlinx.coroutines.Dispatchers
@@ -56,10 +54,6 @@ class SimpleLoginViewModel : ViewModel() {
 
     private fun isValidate(): Boolean {
         return password.value.isValidatePassword() && userName.value.isValidateUseName()
-    }
-
-    fun goToFragmentActivity() {
-        NavigationHelper.navigation(SAMPLE_FRAGMENT)
     }
 
     fun login() {

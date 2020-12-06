@@ -17,6 +17,8 @@
         android:layout_height="match_parent"
         tools:context=".activity.SimpleMainActivity">
 
+        <include layout="@layout/include_toolbar" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,17 +29,34 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/antennawgl_extralight"
             android:gravity="center"
-            android:text="goToProfileModule"
+            android:text="goToLogin"
             android:textAllCaps="false"
-            android:textColor="@color/white"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:throttleFirstClick="@{() -> viewModel.navigateToLogin()}" />
+
+        <Button
+            android:id="@+id/toggleStatusBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:text="@string/simple_hide_show_status_bar"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/fragmentUsingStatusBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:onClick="@{()->viewModel.goToFragmentActivity()}"
+            android:text="goToFragmentActivity"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </layout>

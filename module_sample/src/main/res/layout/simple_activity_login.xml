@@ -94,27 +94,6 @@
                     android:textAllCaps="false"
                     android:text="Login" />
 
-                <Button
-                    android:id="@+id/toggleStatusBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/antennawgl_regular"
-                    android:text="@{viewmodel.validate? @string/simple_hide_show_status_bar:@string/simple_login}"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/fragmentUsingStatusBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/antennawgl_regular"
-                    android:layout_weight="1"
-                    android:onClick="@{()->viewmodel.goToFragmentActivity()}"
-                    android:text="goToFragmentActivity"
-                    android:textAllCaps="false"
-                    android:textStyle="bold" />
             </LinearLayout>
 
         </ScrollView>
