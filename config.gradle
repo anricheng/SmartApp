@@ -1,5 +1,49 @@
 afterEvaluate {
     android {
+        compileSdkVersion android_config["compileSdkVersion"]
+        buildToolsVersion android_config["buildToolsVersion"]
+
+        defaultConfig {
+            minSdkVersion android_config["minSdkVersion"]
+            targetSdkVersion android_config["targetSdkVersion"]
+            versionCode android_config["versionCode"]
+            versionName android_config["versionName"]
+
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+            consumerProguardFiles "consumer-rules.pro"
+            kapt {
+                arguments {
+                    arg("AROUTER_MODULE_NAME", project.getName())
+                }
+            }
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        buildFeatures {
+            dataBinding = true
+        }
+
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
+        }
+
+        kotlin {
+            androidExtensions {
+                experimental = true
+            }
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+
         flavorDimensions 'environment'//, "performance"
         productFlavors {
             dev {
@@ -23,16 +67,10 @@ afterEvaluate {
             }
         }
     }
-
-    kotlin {
-        androidExtensions {
-            experimental = true
-        }
-    }
-
+    
     repositories {
         flatDir {
-            dirs= rootProject.subprojects.collect { project -> "${project.projectDir}/libs" } + "$projectDir/libs"
+            dirs = rootProject.subprojects.collect { project -> "${project.projectDir}/libs" } + "$projectDir/libs"
         }
     }
 }

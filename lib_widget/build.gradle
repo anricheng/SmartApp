@@ -17,12 +17,6 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled false
