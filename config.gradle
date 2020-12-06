@@ -29,6 +29,12 @@ afterEvaluate {
             experimental = true
         }
     }
+
+    repositories {
+        flatDir {
+            dirs= rootProject.subprojects.collect { project -> "${project.projectDir}/libs" } + "$projectDir/libs"
+        }
+    }
 }
 
 ext {
