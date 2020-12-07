@@ -18,19 +18,20 @@
 
         <ImageView
             android:id="@+id/avatar"
-            android:layout_marginTop="@dimen/dp20"
-            android:layout_marginStart="@dimen/dp20"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             image_url="@{item.imageUrl}"
             isCircle="@{true}"
-            tools:src="@drawable/chuck_ic_https_grey_24dp"
-            android:layout_width="@dimen/dp50"
-            android:layout_height="@dimen/dp50"/>
+            android:layout_width="60dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            tools:srcCompat="@tools:sample/avatars[6]" />
 
         <TextView
             android:layout_marginStart="@dimen/dp20"
-            tools:text="this is a test text"
+            tools:text="@tools:sample/full_names"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.content}"

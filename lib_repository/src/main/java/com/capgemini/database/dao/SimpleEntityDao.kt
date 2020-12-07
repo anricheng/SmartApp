@@ -62,7 +62,7 @@ interface SimpleEntityDao {
      * Update the complete status of a task
      *
      * @param taskId id of the task
-     * @param completed status to be updated
+     * @param content status to be updated
      */
     @Query("UPDATE SIMPLE_DATA SET content = :content WHERE guid = :taskId")
     suspend fun updateCompleted(taskId: String, content: String)
@@ -72,7 +72,7 @@ interface SimpleEntityDao {
      *
      * @return the number of SIMPLE_DATA deleted. This should always be 1.
      */
-    @Query("DELETE FROM SIMPLE_DATA WHERE guid = :taskId")
+    @Query("DELETE FROM SIMPLE_DATA WHERE GUID = :taskId")
     suspend fun deleteTaskById(taskId: String): Int
 
     /**
@@ -86,6 +86,6 @@ interface SimpleEntityDao {
      *
      * @return the number of SIMPLE_DATA deleted.
      */
-    @Query("DELETE FROM SIMPLE_DATA WHERE isUsed = 1")
+    @Query("DELETE FROM SIMPLE_DATA WHERE ISUSED = 1")
     suspend fun deleteUsedData(): Int
 }
