@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    api(name: 'lib_font', ext: 'aar')
+    compileOnly(name: 'lib_font', ext: 'aar')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 

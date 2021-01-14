@@ -1,12 +1,15 @@
 package com.capgemini.repository
 
-import com.capgemini.database.dao.TasksDao
-import com.capgemini.entity.TaskEntity
+import com.capgemini.api.CommunityApi
+import com.capgemini.entity.BaseResponse
+import com.capgemini.entity.Feed
+import kotlinx.coroutines.Deferred
+import java.util.*
 
-class SampleRepository2(private val dao: TasksDao) {
+class SampleRepository2(private val communityApi: CommunityApi) {
 
-    suspend fun getTask(taskId: String):List<TaskEntity>{
-       return dao.getTasks()
+    suspend fun getFeeds(feedType: String, userId: String, feedId: String, pageCount: String): BaseResponse<ArrayList<Feed>> {
+        return communityApi.getFeeds(feedType, userId, feedId, pageCount)
     }
 
 }

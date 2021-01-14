@@ -1,11 +1,17 @@
 package com.capgemini.module_sample.fragment
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
+import com.capgemini.lib_common.base.BaseDataBindingFragment
 import com.capgemini.lib_common.base.BaseFragment
 import com.capgemini.module_sample.R
+import com.capgemini.module_sample.databinding.SimpleFragmentSampleBinding
+import com.capgemini.module_sample.viewmodel.SimpleCommunityHomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class SimpleFragment : BaseFragment() {
+@AndroidEntryPoint
+class SimpleFragment : BaseDataBindingFragment<SimpleFragmentSampleBinding>() {
+    private val viewModel by viewModels<SimpleCommunityHomeViewModel>()
 
     companion object {
         fun newInstance(text: String): BaseFragment {
@@ -15,6 +21,10 @@ class SimpleFragment : BaseFragment() {
                 }
             }
         }
+    }
+
+    override fun setupViewModel() {
+        super.setupViewModel()
     }
 
     override fun getLayoutId() = R.layout.simple_fragment_sample

@@ -66,5 +66,14 @@
             android:textAllCaps="false"
             android:textStyle="bold" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:onClick="@{()->viewModel.navigateToCommunityActivity()}"
+            android:text="goToCommunityActivity"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
     </LinearLayout>
 </layout>

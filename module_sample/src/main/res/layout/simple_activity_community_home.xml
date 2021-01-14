@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable name="viewmodel" type="com.capgemini.module_sample.viewmodel.SimpleCommunityHomeViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/include_toolbar" />
+
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -15,6 +15,7 @@ import com.capgemini.lib_common.extendtions.toastLg
 import com.capgemini.lib_common.utils.SimpleTextWatcher
 import com.capgemini.lib_communicate.arouter.NavigationHelper
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_COMMUNITY
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
 import com.capgemini.repository.SampleRepository1
@@ -51,6 +52,11 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
     fun navigateToListActivity(){
         NavigationHelper.navigation(SAMPLE_LIST)
+    }
+
+
+    fun navigateToCommunityActivity(){
+        NavigationHelper.navigation(SAMPLE_COMMUNITY)
     }
 
 }

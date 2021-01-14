@@ -2,9 +2,12 @@ package com.capgemini.di
 
 import android.content.Context
 import androidx.room.Room
+import com.capgemini.api.CommunityApi
 import com.capgemini.database.SmartDataBase
+import com.capgemini.http.BuildConfig
 import com.capgemini.http.RetrofitManager
 import com.capgemini.repository.SampleRepository1
+import com.capgemini.repository.SampleRepository2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +21,17 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideMainRepository(dataBase: SmartDataBase) = SampleRepository1(dataBase.simpleEntityDao())
+    fun provideSampleRepository1(dataBase: SmartDataBase) = SampleRepository1(dataBase.simpleEntityDao())
+
+
+    @Singleton
+    @Provides
+    fun provideSampleRepository2(communityApi: CommunityApi) = SampleRepository2(communityApi)
+
+
+    @Singleton
+    @Provides
+    fun provideCommunityApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(CommunityApi::class.java, BuildConfig.COMMUNITY_URL)
 
 
     @Singleton
