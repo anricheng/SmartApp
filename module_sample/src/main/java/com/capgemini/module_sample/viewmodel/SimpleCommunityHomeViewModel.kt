@@ -64,7 +64,7 @@ fun howSumOptimized(target: Int, array: IntArray,memb: MutableMap<Int,IntArray?>
 
     if (target == 0) return intArrayOf()
     val 周="This is from zhou"
-    if (周.startsWith())
+
 
     if (target < 0) return null
 
