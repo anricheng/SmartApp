@@ -17,20 +17,3 @@ interface ProfileModuleProvider : IProvider {
      */
     fun getUserToken(): String?
 }
-
-
-interface SampleProvider : IProvider {
-    /**
-     * 获取UserId
-     *
-     * @return userId
-     */
-    fun getUserId(): String?
-
-    /**
-     * 获取UserToken
-     *
-     * @return token
-     */
-    fun getUserToken(): String?
-}

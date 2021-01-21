@@ -21,7 +21,6 @@ class SimpleLoginActivity : BaseDataBindingActivity<SimpleActivityLoginBinding>(
 
     override fun setupView() {
         setupToolbarTitle("Login")
-        setupToolbarBackground(com.capgemini.lib_common.R.color.colorPrimary)
     }
 
     override fun getLayoutId(): Int = R.layout.simple_activity_login

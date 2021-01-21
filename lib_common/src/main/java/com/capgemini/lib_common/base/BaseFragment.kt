@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.capgemini.lib_common.R
 import com.capgemini.lib_common.extendtions.*
+import com.zackratos.ultimatebarx.library.addStatusBarTopPadding
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 
@@ -49,6 +50,7 @@ abstract class BaseFragment : Fragment(), IBase {
         setupListener()
         setupView()
         toolbar.notNull { toolbar ->
+            toolbar.addStatusBarTopPadding()
             setupToolBarBackIcon().notNull {
                 toolbar.setNavigationIcon(it!!)
                 mContainerActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)

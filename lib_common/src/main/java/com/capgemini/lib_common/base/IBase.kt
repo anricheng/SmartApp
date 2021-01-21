@@ -7,6 +7,8 @@ import com.capgemini.lib_common.extendtions.isTrue
 import com.capgemini.lib_common.extendtions.otherwise
 import com.gyf.immersionbar.ImmersionBar
 import com.gyf.immersionbar.ktx.immersionBar
+import com.zackratos.ultimatebarx.library.UltimateBarX
+import com.zackratos.ultimatebarx.library.bean.BarConfig
 
 interface IBase {
 
@@ -16,33 +18,41 @@ interface IBase {
      * if setImmersionBarConfig() doesn't meet requirement then override this method
      */
     fun setupImmersionBar() {
-        val block: ImmersionBar.() -> Unit = {
-            setupImmersionBarConfig().apply {
-                isImmersionBarEnabled.isTrue {
-                    isTransparentBar.isTrue {
-                        //状态栏覆盖在布局之上，重叠，透明状态栏
-                        transparentBar()
-                    }.otherwise {
-                        //状态栏在布局之上，不重叠，状态栏可设置颜色
-                        fitsSystemWindows(true)
-                        statusBarColor(statusBarColor)
-                    }
-                    statusBarDarkFont(isStatusBarDarkFont)
-                    keyboardEnable(isKeyboardEnabled)
-                }
-            }
-        }
+//        val block: ImmersionBar.() -> Unit = {
+//            setupImmersionBarConfig().apply {
+//                isImmersionBarEnabled.isTrue {
+//                    isTransparentBar.isTrue {
+//                        //状态栏覆盖在布局之上，重叠，透明状态栏
+//                        transparentBar()
+//                    }.otherwise {
+//                        //状态栏在布局之上，不重叠，状态栏可设置颜色
+//                        fitsSystemWindows(true)
+//                        statusBarColor(statusBarColor)
+//                    }
+//                    statusBarDarkFont(isStatusBarDarkFont)
+//                    keyboardEnable(isKeyboardEnabled)
+//                }
+//            }
+//        }
+//        when (immersionBarContext) {
+//            is AppCompatActivity -> (immersionBarContext as AppCompatActivity).immersionBar(block)
+//            is Fragment -> (immersionBarContext as Fragment).immersionBar(block)
+//            else -> throw IllegalArgumentException("the context should be Fragment or Activity and not null")
+//        }
+        val config = BarConfig.newInstance()          // 创建配置对象
+            .fitWindow(true)
+            .transparent()// 布局是否侵入状态栏（true 不侵入，false 侵入）
+            .light(false)
         when (immersionBarContext) {
-            is AppCompatActivity -> (immersionBarContext as AppCompatActivity).immersionBar(block)
-            is Fragment -> (immersionBarContext as Fragment).immersionBar(block)
+            is AppCompatActivity -> UltimateBarX.with(immersionBarContext as AppCompatActivity)
+                .config(config)
+                .applyStatusBar()
+            is Fragment -> UltimateBarX.with(immersionBarContext as Fragment)
+                .config(config)
+                .applyStatusBar()
             else -> throw IllegalArgumentException("the context should be Fragment or Activity and not null")
         }
     }
-
-    /**
-     * set up configuration for ImmersionBar
-     */
-    fun setupImmersionBarConfig(): ImmersionBarConfig = ImmersionBarConfig()
 
     /**
      * The fun should be override only when Fragment/Activity context scope is a must
@@ -59,7 +69,7 @@ interface IBase {
      */
     fun getLayoutId(): Int
 
-    fun setUpToolbar(){}
+    fun setUpToolbar() {}
 }
 
 /**

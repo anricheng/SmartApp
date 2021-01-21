@@ -48,7 +48,7 @@ afterEvaluate {
         productFlavors {
             dev {
                 buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
-                buildConfigField("String", "COMMUNITY_URL", "\"http://123.56.232.18:8080/serverdemo\"")
+                buildConfigField("String", "COMMUNITY_URL", "\"http://123.56.232.18:8080/serverdemo/\"")
                 dimension 'environment'
             }
 

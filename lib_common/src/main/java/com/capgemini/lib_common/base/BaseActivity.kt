@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import com.capgemini.lib_common.R
 import com.capgemini.lib_common.extendtions.*
+import com.zackratos.ultimatebarx.library.addStatusBarTopPadding
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 
@@ -24,6 +25,7 @@ abstract class BaseActivity : AppCompatActivity(), IBase {
             setContentView(getLayoutId())
         }
         toolbar.notNull { toolbar ->
+            toolbar.addStatusBarTopPadding()
             setupToolBarBackIcon().notNull {
                 toolbar.setNavigationIcon(it!!)
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)

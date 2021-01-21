@@ -114,6 +114,9 @@ dependencies {
      // kotlin扩展（可选）
     api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
 
+    api 'com.zackratos.ultimatebarx:ultimatebarx:0.4.1'
+
+
     /*屏幕适配方案 以及常见问题解决办法：https://github.com/JessYanCoding/AndroidAutoSize/issues/13*/
     api 'me.jessyan:autosize:1.2.1'
     //https://github.com/LiangLuDev/DevShapeUtils

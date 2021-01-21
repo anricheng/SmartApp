@@ -6,7 +6,9 @@ import com.capgemini.lib_common.extendtions.replaceFragment
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_FRAGMENT
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.fragment.SimpleFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @Route(path = SAMPLE_FRAGMENT)
 class SampleFragmentActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.simple_fragment

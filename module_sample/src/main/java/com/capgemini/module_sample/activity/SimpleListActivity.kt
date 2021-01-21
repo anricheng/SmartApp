@@ -34,7 +34,9 @@ class SimpleListActivity : BaseDataBindingActivity<SimpleActivityListBinding>() 
 
         viewModel.dataList.observe(this) {
             mAdapter.submitList(it)
+            if(it.size >8){
             recyclerView.smoothScrollToPosition(it.size - 1)
+            }
         }
 
         setupToolbarRightSubtitle("添加数据") {

@@ -32,5 +32,6 @@ class SimpleFragment : BaseDataBindingFragment<SimpleFragmentSampleBinding>() {
     override fun setupView() {
         super.setupView()
         setupToolbarTitle("fragment${arguments?.get("param")}")
+
     }
 }
