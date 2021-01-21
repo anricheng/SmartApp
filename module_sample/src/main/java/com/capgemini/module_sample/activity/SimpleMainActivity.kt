@@ -1,5 +1,6 @@
 package com.capgemini.module_sample.activity
 
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.capgemini.lib_common.base.BaseDataBindingActivity
@@ -10,8 +11,6 @@ import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.S
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.databinding.SimpleActivityMainBinding
 import com.capgemini.module_sample.viewmodel.SimpleMainActivityViewModel
-import com.gyf.immersionbar.ktx.hideStatusBar
-import com.gyf.immersionbar.ktx.showStatusBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.simple_activity_main.*
 
@@ -31,10 +30,12 @@ class SimpleMainActivity : BaseDataBindingActivity<SimpleActivityMainBinding>() 
     override fun setupListener() {
         toggleStatusBar.throttleFirstClick {
             isStatusBar = isStatusBar.isTrue {
-                hideStatusBar()
+                window.setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 false
             }.otherwise {
-                showStatusBar()
+                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 true
             }
         }

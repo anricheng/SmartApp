@@ -105,17 +105,9 @@ dependencies {
     api "androidx.startup:startup-runtime:1.0.0"
 
     /**
-     * immersionbar
+     * 沉浸式状态栏
      */
-    // 基础依赖包，必须要依赖
-    api 'com.gyf.immersionbar:immersionbar:3.0.0'
-    // fragment快速实现（可选）
-    api 'com.gyf.immersionbar:immersionbar-components:3.0.0'
-     // kotlin扩展（可选）
-    api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
-
     api 'com.zackratos.ultimatebarx:ultimatebarx:0.4.1'
-
 
     /*屏幕适配方案 以及常见问题解决办法：https://github.com/JessYanCoding/AndroidAutoSize/issues/13*/
     api 'me.jessyan:autosize:1.2.1'
