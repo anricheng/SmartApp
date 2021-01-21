@@ -1,7 +1,9 @@
 package com.capgemini.lib_common.base
 
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.capgemini.lib_common.R
 import com.zackratos.ultimatebarx.library.UltimateBarX
 import com.zackratos.ultimatebarx.library.bean.BarConfig
 
@@ -43,5 +45,5 @@ interface IBase {
      */
     fun getLayoutId(): Int
 
-    fun setUpToolbar() {}
+    fun setupToolBarBackIcon(@DrawableRes resId: Int = R.drawable.ic_back): Int? = resId
 }

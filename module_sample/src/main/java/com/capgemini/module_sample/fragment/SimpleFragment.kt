@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.viewModels
 import com.capgemini.lib_common.base.BaseDataBindingFragment
 import com.capgemini.lib_common.base.BaseFragment
+import com.capgemini.lib_common.base.mToolbar
+import com.capgemini.lib_common.base.mToolbarTitle
+import com.capgemini.lib_common.extendtions.setBackgroundColorE
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.databinding.SimpleFragmentSampleBinding
 import com.capgemini.module_sample.viewmodel.SimpleCommunityHomeViewModel
@@ -31,7 +34,7 @@ class SimpleFragment : BaseDataBindingFragment<SimpleFragmentSampleBinding>() {
 
     override fun setupView() {
         super.setupView()
-        setupToolbarTitle("fragment${arguments?.get("param")}")
-
+        mToolbarTitle.text = "fragment${arguments?.get("param")}"
+        mToolbar.setBackgroundColorE(R.color.transparent)
     }
 }

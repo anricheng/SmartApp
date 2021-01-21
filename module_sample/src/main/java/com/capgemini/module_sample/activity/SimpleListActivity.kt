@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.capgemini.lib_common.base.BaseDataBindingActivity
+import com.capgemini.lib_common.base.mToolbarRightTitle
+import com.capgemini.lib_common.base.mToolbarTitle
+import com.capgemini.lib_common.extendtions.throttleFirstClick
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.adapter.SimpleListAdapter
@@ -25,7 +28,7 @@ class SimpleListActivity : BaseDataBindingActivity<SimpleActivityListBinding>() 
     }
 
     override fun setupView() {
-        setupToolbarTitle("这是列表页面")
+        mToolbarTitle.text = "这是列表页面"
         recyclerView.apply {
             layoutManager =
                 LinearLayoutManager(this@SimpleListActivity, RecyclerView.VERTICAL, false)
@@ -38,8 +41,11 @@ class SimpleListActivity : BaseDataBindingActivity<SimpleActivityListBinding>() 
             recyclerView.smoothScrollToPosition(it.size - 1)
             }
         }
+       mToolbarRightTitle.text = "添加数据"
+    }
 
-        setupToolbarRightSubtitle("添加数据") {
+    override fun setupListener() {
+        mToolbarRightTitle.throttleFirstClick{
             viewModel.createData()
         }
     }

@@ -1,9 +1,8 @@
 package com.capgemini.lib_common.base
 
+import android.app.Activity
 import android.os.Bundle
-import android.view.View
 import androidx.annotation.CallSuper
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import com.capgemini.lib_common.R
@@ -11,6 +10,9 @@ import com.capgemini.lib_common.extendtions.*
 import com.zackratos.ultimatebarx.library.addStatusBarTopPadding
 import kotlinx.android.synthetic.main.include_toolbar.*
 
+inline val Activity.mToolbar get() = toolbar
+inline val Activity.mToolbarTitle get() = toolbarTitle
+inline val Activity.mToolbarRightTitle get() = toolbarSubtitle
 
 abstract class BaseActivity : AppCompatActivity(), IBase {
     override val immersionBarContext: Any
@@ -44,34 +46,6 @@ abstract class BaseActivity : AppCompatActivity(), IBase {
         setupView()
     }
 
-    /************toolbar start ***********/
-
-    protected open fun setupToolBarBackIcon(@DrawableRes resId: Int = R.drawable.ic_back): Int? = resId
-
-    protected open fun setupToolbarRightSubtitle(text: String, listener: View.OnClickListener) {
-        toolbarSubtitle.apply {
-            this.text = text
-            this.throttleFirstClick(listener =listener)
-        }
-    }
-
-    protected open fun setupToolbarTitle(text: String) {
-        toolbarTitle.text = text
-    }
-
-    protected open fun setupToolbarBackground(
-        @ColorRes colorId: Int,
-        @DrawableRes drawableId: Int = -1
-    ) {
-        (drawableId != -1).isTrue {
-            toolbar.setBackgroundE(drawableId)
-        }.otherwise {
-            toolbar.setBackgroundColorE(colorId)
-        }
-    }
-
-    /************toolbar end ***********/
-
     open fun isMultiFragmentActivity() = false
 
     protected open fun setupDataBinding() {}
@@ -90,7 +64,6 @@ abstract class BaseActivity : AppCompatActivity(), IBase {
             super.onBackPressed()
         }
     }
-
 }
 
 

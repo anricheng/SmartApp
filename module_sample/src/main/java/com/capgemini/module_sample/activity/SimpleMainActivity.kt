@@ -4,6 +4,7 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.capgemini.lib_common.base.BaseDataBindingActivity
+import com.capgemini.lib_common.base.mToolbarTitle
 import com.capgemini.lib_common.extendtions.isTrue
 import com.capgemini.lib_common.extendtions.otherwise
 import com.capgemini.lib_common.extendtions.throttleFirstClick
@@ -22,7 +23,10 @@ class SimpleMainActivity : BaseDataBindingActivity<SimpleActivityMainBinding>() 
 
     override fun setupViewModel() {
         binding.viewModel = viewModel
-        setupToolbarTitle("样例主页")
+    }
+
+    override fun setupView() {
+        mToolbarTitle.text = "样例主页"
     }
 
 
