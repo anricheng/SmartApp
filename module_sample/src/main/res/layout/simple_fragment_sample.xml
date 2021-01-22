@@ -15,19 +15,18 @@
             android:id="@+id/mIv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/pic_all"
+            android:src="@drawable/simple_pic_all"
             android:scaleType="centerCrop" />
-
         <include layout="@layout/include_toolbar" />
-
 
         <TextView
             android:gravity="center"
             android:id="@+id/mText"
-            tools:text="这是测试"
+            android:textColor="@color/chuck_status_300"
+            android:text="这是测试"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/pic_all"
+            android:src="@drawable/simple_pic_all"
             android:scaleType="centerCrop" />
 
     </FrameLayout>

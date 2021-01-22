@@ -15,6 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SimpleFragment : BaseDataBindingFragment<SimpleFragmentSampleBinding>() {
     private val viewModel by viewModels<SimpleCommunityHomeViewModel>()
+    private val param by lazy { arguments?.getString("param") ?: "" }
+
 
     companion object {
         fun newInstance(text: String): BaseFragment {
@@ -26,15 +28,11 @@ class SimpleFragment : BaseDataBindingFragment<SimpleFragmentSampleBinding>() {
         }
     }
 
-    override fun setupViewModel() {
-        super.setupViewModel()
-    }
-
     override fun getLayoutId() = R.layout.simple_fragment_sample
 
     override fun setupView() {
         super.setupView()
-        mToolbarTitle.text = "fragment${arguments?.get("param")}"
+        mToolbarTitle.text = param
         mToolbar.setBackgroundColorE(R.color.transparent)
     }
 }

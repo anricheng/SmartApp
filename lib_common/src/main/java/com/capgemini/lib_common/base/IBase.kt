@@ -10,7 +10,6 @@ import com.zackratos.ultimatebarx.library.bean.BarConfig
 interface IBase {
 
     val immersionBarContext: Any
-
     /**
      * if setImmersionBarConfig() doesn't meet requirement then override this method
      */

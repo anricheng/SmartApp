@@ -4,5 +4,6 @@
     <item name="loadingCancelable" type="id" />
     <item name="loadingHoldable" type="id" />
     <item name="loadingFrame" type="id" />
+    <item name="delete" type="drawable" />
 
 </resources>

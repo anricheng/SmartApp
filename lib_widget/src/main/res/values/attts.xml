@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    DeletableEditText-->
+    <declare-styleable name="DeletableEditText">
+        <attr name="delete_icon" format="reference"/>
+    </declare-styleable>
+</resources>

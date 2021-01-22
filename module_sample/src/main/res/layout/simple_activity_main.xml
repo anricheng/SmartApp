@@ -75,5 +75,24 @@
             android:textAllCaps="false"
             android:textStyle="bold" />
 
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:onClick="@{()->viewModel.navigateToScrollActivity()}"
+            android:text="goToScrollActivity"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <com.capgemini.lib_widget.DeletableEditText
+            android:fontFamily="@font/antennawgl_extralight"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:background="@color/chuck_status_requested"
+            android:layout_width="match_parent"
+            app:delete_icon="@drawable/ic_close"
+            android:layout_height="@dimen/dp50"/>
+
     </LinearLayout>
 </layout>

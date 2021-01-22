@@ -8,6 +8,7 @@
         <activity android:name=".activity.SampleFragmentActivity"/>
         <activity android:name=".activity.SimpleListActivity"/>
         <activity android:name=".activity.SimpleCommunityHomeActivity"/>
+        <activity android:name=".activity.SimpleScrollActivity"/>
     </application>
 
 

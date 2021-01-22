@@ -18,6 +18,7 @@ import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_COMMUNITY
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_SCROLL
 import com.capgemini.repository.SampleRepository1
 import kotlinx.coroutines.launch
 
@@ -57,6 +58,11 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
     fun navigateToCommunityActivity(){
         NavigationHelper.navigation(SAMPLE_COMMUNITY)
+    }
+
+
+    fun navigateToScrollActivity(){
+        NavigationHelper.navigation(SAMPLE_SCROLL)
     }
 
 }
