@@ -22,7 +22,8 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideSampleRepository1(dataBase: SmartDataBase,githubRestFulApi: GithubRestFulApi) = SampleRepository1(dataBase.simpleEntityDao(),githubRestFulApi)
+    fun provideSampleRepository1(dataBase: SmartDataBase, githubRestFulApi: GithubRestFulApi) =
+        SampleRepository1(dataBase.simpleEntityDao(), githubRestFulApi)
 
 
     @Singleton
@@ -32,16 +33,14 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideCommunityApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(CommunityApi::class.java, BuildConfig.COMMUNITY_URL)
+    fun provideCommunityApi(retrofitManager: RetrofitManager) =
+        retrofitManager.createApi(CommunityApi::class.java, BuildConfig.COMMUNITY_URL)
 
     @Singleton
     @Provides
-    fun provideGitHubApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubRestFulApi::class.java, BuildConfig.GITHUB_URL)
+    fun provideGitHubApi(retrofitManager: RetrofitManager) =
+        retrofitManager.createApi(GithubRestFulApi::class.java, BuildConfig.GITHUB_URL)
 
-    @Singleton
-    @Provides
-    fun provideGithubUserApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubRestFulApi::class.java,BuildConfig.GITHUB_URL)
-    }
 
     @Singleton
     @Provides
@@ -59,4 +58,6 @@ class RepositoryModule {
     fun provideRetrofitManager(@ApplicationContext context: Context): RetrofitManager {
         return RetrofitManager(context)
     }
+
+}
 

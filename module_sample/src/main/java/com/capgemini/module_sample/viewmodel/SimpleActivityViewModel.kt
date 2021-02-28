@@ -1,6 +1,7 @@
 package com.capgemini.module_sample.viewmodel
 
 import android.Manifest
+import android.os.Bundle
 import android.text.Editable
 import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
@@ -8,7 +9,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alibaba.android.arouter.launcher.ARouter
 import com.capgemini.entity.TaskEntity
+import com.capgemini.entity.UserInformation
 import com.capgemini.lib_common.extendtions.isTrue
 import com.capgemini.lib_common.extendtions.otherwise
 import com.capgemini.lib_common.extendtions.requestPermission
@@ -53,12 +56,6 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
             }
         }
     }
-      fun getUserImformation(){
-        viewModelScope.launch {
-            val reponse = sampleRepository1.getUserInformation("anricheng")
-            Log.v("at",reponse.body().toString())
-        }
-    }
 
     fun navigateToLogin(){
         NavigationHelper.navigation(SAMPLE_LOGIN)
@@ -69,7 +66,16 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
     }
 
     fun navigateToListActivity(){
-        NavigationHelper.navigation(SAMPLE_LIST)
+        var bundle:Bundle = Bundle()
+        viewModelScope.launch {
+            val reponse = sampleRepository1.getUserInformation("anricheng")
+            var list:ArrayList<UserInformation>? = reponse.body()
+            bundle.putSerializable("abc",list)
+            Log.v("at",reponse.body().toString())
+        }
+        ARouter.getInstance().build(SAMPLE_LIST).withBundle("bundle",bundle).navigation()
+//        NavigationHelper.navigation(SAMPLE_LIST,bundle)
+    }
     }
 
 
@@ -79,8 +85,7 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
 
     fun navigateToScrollActivity(){
-        NavigationHelper.navigation(SAMPLE_SCROLL)
-    }
 
+        NavigationHelper.navigation(SAMPLE_SCROLL)
 }
 

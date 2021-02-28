@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.capgemini.api.GithubRestFulApi
 import com.capgemini.database.dao.SimpleEntityDao
 import com.capgemini.entity.ItemEntity
+import com.capgemini.entity.UserInformation
 
 class SampleRepository1(private val dao: SimpleEntityDao,private  val githubRestFulApi: GithubRestFulApi) {
 

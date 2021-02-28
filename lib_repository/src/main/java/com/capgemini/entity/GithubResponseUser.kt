@@ -1,5 +1,9 @@
 package com.capgemini.entity
 
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
+
+@Parcelize
 data class UserInformation(
     val archive_url: String,
     val archived: Boolean,
@@ -75,7 +79,7 @@ data class UserInformation(
     val watchers: Int,
     val watchers_count: Int
 )
-
+@Parcelize
 data class OwnerUser(
     val avatar_url: String,
     val events_url: String,
