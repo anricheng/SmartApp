@@ -2,6 +2,7 @@ package com.capgemini.module_sample.viewmodel
 
 import android.Manifest
 import android.text.Editable
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -40,6 +41,16 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
     fun getPhonePermission(){
         requestPermission(Manifest.permission.CALL_PHONE,Manifest.permission.READ_PHONE_STATE){
             toastLg("用户${it.isTrue { "同意了" }.otherwise { "拒绝了" }}")
+        }
+
+        viewModelScope.launch {
+            val response = sampleRepository1.getRepositories("anricheng")
+
+            if (response.isSuccessful){
+                Log.d("aric","请求成功")
+            }else{
+                Log.d("aric","请求成功")
+            }
         }
     }
 
