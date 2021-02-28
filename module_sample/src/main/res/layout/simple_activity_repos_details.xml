@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="viewmodel"
-            type="com.capgemini.module_sample.viewmodel.SimpleReposDetailsViewModel" />
+            name="reposDetails"
+            type="com.capgemini.entity.ReposDetails" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,21 +20,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
+            app:layout_constraintGuide_percent="0.23" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.38" />
+            app:layout_constraintGuide_percent="0.40" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
+            app:layout_constraintGuide_percent="0.8" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
@@ -55,7 +55,6 @@
             android:layout_height="35dp"
             android:id="@+id/imageViewHead"
             android:layout_marginTop="5dp"
-            isCircle="@{true}"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             android:src="@drawable/simple_repos_details_head_portrait">
@@ -63,14 +62,12 @@
 
         <TextView
             android:id="@+id/textViewUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="anricheng"
-            android:layout_marginLeft="10dp"
-            android:textSize="13dp"
+            style="@style/simplemytextstyle"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewHead"
             app:layout_constraintStart_toEndOf="@id/imageViewHead"
             app:layout_constraintTop_toTopOf="@+id/imageViewHead"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewHead">
+            tools:text="anricheng"
+            android:text="@{reposDetails.owner.login}">
         </TextView>
 
         <TextView
@@ -78,10 +75,11 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/imageViewHead"
             app:layout_constraintStart_toStartOf="@id/imageViewHead"
-            android:layout_marginTop="10dp"
-            android:text="JTPLearning"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
             android:textSize="20dp"
-            android:textStyle="bold">
+            tools:text="JTPLearning"
+            android:text="@{reposDetails.name}">
         </TextView>
 
         <ImageView
@@ -93,15 +91,12 @@
             android:src="@drawable/ic_lock">
         </ImageView>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textViewPrivate"
-            android:layout_marginLeft="10dp"
+            style="@style/simplemytextstyle"
             app:layout_constraintTop_toTopOf="@+id/imageViewPrivate"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewPrivate"
             app:layout_constraintStart_toEndOf="@id/imageViewPrivate"
-            android:text="私人"
-            android:textSize="15dp">
+            tools:text="私人">
         </TextView>
 
         <ImageView
@@ -110,20 +105,20 @@
             android:id="@+id/imageViewStar"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/imageViewPrivate"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/ic_star">
         </ImageView>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textViewStar"
-            app:layout_constraintTop_toTopOf="@id/imageViewStar"
+            style="@style/simplemytextstyle"
+            android:layout_marginStart="8dp"
+            android:text='@{Integer.toString(reposDetails.stargazersCount)+@string/simple_star}'
             app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
             app:layout_constraintStart_toEndOf="@id/imageViewStar"
-            android:layout_marginLeft="10dp"
-            android:textSize="15dp"
-            android:text="0个星标">
-        </TextView>
+            app:layout_constraintTop_toTopOf="@id/imageViewStar"
+            app:layout_constraintVertical_bias="0.6"
+            tools:text="0个星标"></TextView>
 
         <ImageView
             android:layout_width="25dp"
@@ -136,15 +131,13 @@
             android:src="@drawable/ic_folk">
         </ImageView>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textViewFolk"
+            style="@style/simplemytextstyle"
             app:layout_constraintTop_toTopOf="@id/imageViewFolk"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewFolk"
             app:layout_constraintStart_toEndOf="@id/imageViewFolk"
-            android:layout_marginLeft="10dp"
-            android:textSize="15dp"
-            android:text="0个复刻">
+            tools:text="0个复刻"
+            android:text='@{Integer.toString(reposDetails.forksCount)+@string/simple_fork}'>
         </TextView>
 
         <Button
@@ -153,7 +146,7 @@
             android:id="@+id/buttonStar"
             app:layout_constraintTop_toBottomOf="@id/imageViewStar"
             app:layout_constraintStart_toStartOf="@id/guideline4"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="#D8ECECEC"
             android:text="星 标"
             android:textColor="#1492F6">
@@ -190,14 +183,11 @@
             android:src="@drawable/ic_issues">
         </ImageView>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textViewIssues"
+            style="@style/simplemytextstyle"
             app:layout_constraintTop_toTopOf="@id/imageViewIssues"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewIssues"
             app:layout_constraintStart_toEndOf="@id/imageViewIssues"
-            android:layout_marginLeft="10dp"
-            android:textSize="15dp"
             android:text="议题">
         </TextView>
         <TextView
@@ -207,7 +197,8 @@
             app:layout_constraintTop_toTopOf="@id/imageViewIssues"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewIssues"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
-            android:text="0"
+            tools:text="0"
+            android:text="@{Integer.toString(reposDetails.openIssuesCount)}"
             android:textSize="20dp">
         </TextView>
 
@@ -237,7 +228,8 @@
             app:layout_constraintTop_toTopOf="@id/imageViewPull"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewPull"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
-            android:text="0"
+            tools:text="0"
+            android:text="@{Integer.toString(reposDetails.subscribersCount)}"
             android:textSize="20dp">
         </TextView>
 
@@ -267,9 +259,11 @@
             app:layout_constraintTop_toTopOf="@id/imageViewWatch"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewWatch"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
-            android:text="1"
+            tools:text="1"
+            android:text="@{Integer.toString(reposDetails.watchersCount)}"
             android:textSize="20dp">
         </TextView>
+
         <View
             android:id="@+id/viewLine2"
             app:layout_constraintTop_toBottomOf="@+id/imageViewWatch"
@@ -306,7 +300,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewCode"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/textViewBranch"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             android:text="浏览代码"
@@ -317,7 +311,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textViewCommit"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/textViewCode"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             android:text="提交"
@@ -340,7 +334,8 @@
             android:id="@+id/textViewDescribe"
             app:layout_constraintTop_toTopOf="@id/guideline3"
             app:layout_constraintStart_toStartOf="@id/guideline4"
-            android:text="JTPLearning"
+            tools:text="JTPLearning"
+            android:text="@{reposDetails.name}"
             android:textSize="20dp"
             android:textStyle="bold">
         </TextView>
@@ -351,7 +346,8 @@
             android:id="@+id/textViewDescribeDetails"
             app:layout_constraintTop_toBottomOf="@+id/textViewDescribe"
             app:layout_constraintStart_toStartOf="@id/guideline4"
-            android:text="This is learning project to record JTP's daily progress."
+            tools:text="This is learning project to record JTP's daily progress."
+            android:text="@{reposDetails.description.toString()}"
             android:textSize="18dp">
         </TextView>
 

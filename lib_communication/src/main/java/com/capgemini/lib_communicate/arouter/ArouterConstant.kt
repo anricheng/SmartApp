@@ -66,5 +66,6 @@ interface SampleModuleARouterPath {
         const val SAMPLE_LIST = "/sample/list"
         const val SAMPLE_COMMUNITY = "/sample/community"
         const val SAMPLE_SCROLL = "/sample/scroll"
+        const val SAMPLE_REPOS_DETAILS = "/sample/reposDetails"
     }
 }

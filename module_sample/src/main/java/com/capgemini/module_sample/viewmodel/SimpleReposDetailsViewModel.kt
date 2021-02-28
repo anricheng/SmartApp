@@ -1,29 +1,11 @@
 package com.capgemini.module_sample.viewmodel
 
-data class SimpleReposDetailsViewModel(
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.ViewModel
+import com.capgemini.repository.SampleRepository1
 
-    //用户名
-    var userName: String,
+class SimpleReposDetailsViewModel @ViewModelInject constructor(private val repository1: SampleRepository1) : ViewModel(){
 
-    //仓库名
-    var reposName: String,
 
-    //是否私有
-    var private: Boolean,
 
-    //复制数
-    var folk: Int,
-
-    //星标数
-    var star: Int,
-
-    //议题数
-    var issue: Int,
-
-    //拉取请求
-    var pullRequests: Int,
-
-    //关注者
-    var watch: Int,
-
-)
+}
