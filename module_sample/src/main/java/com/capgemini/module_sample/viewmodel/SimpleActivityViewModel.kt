@@ -53,6 +53,12 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
             }
         }
     }
+      fun getUserImformation(){
+        viewModelScope.launch {
+            val reponse = sampleRepository1.getUserInformation("anricheng")
+            Log.v("at",reponse.body().toString())
+        }
+    }
 
     fun navigateToLogin(){
         NavigationHelper.navigation(SAMPLE_LOGIN)

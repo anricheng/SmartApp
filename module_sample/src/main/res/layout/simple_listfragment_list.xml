@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ListFragment">
+
+        <variable
+            name="user"
+            type="com.capgemini.module_sample.bean.UserEntity"
+             />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            isCircle="@{true}"
+            android:layout_width="60dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@{user.picture}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars"
+            tools:srcCompat="@tools:sample/avatars[6]" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/avatar"
+            android:textColor="@color/white"
+            android:layout_marginTop="25dp"
+            android:text="@{user.userName}"
+            tools:text="@tools:sample/full_names"></TextView>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/avatar"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/avatar"
+            android:text="@{user.projectName}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16"
+            android:textStyle="bold"
+            android:textColorLink="@color/white"
+            tools:text="@tools:sample/full_names"></TextView>
+
+    </RelativeLayout>
+</layout>

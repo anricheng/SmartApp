@@ -1,8 +1,6 @@
 package com.capgemini.entity
 
-
-
-data class UserRespositoriesItem(
+data class UserInformation(
     val archive_url: String,
     val archived: Boolean,
     val assignees_url: String,
@@ -18,7 +16,7 @@ data class UserRespositoriesItem(
     val created_at: String,
     val default_branch: String,
     val deployments_url: String,
-    val description: String,
+    val description: Any,
     val disabled: Boolean,
     val downloads_url: String,
     val events_url: String,
@@ -36,7 +34,7 @@ data class UserRespositoriesItem(
     val has_pages: Boolean,
     val has_projects: Boolean,
     val has_wiki: Boolean,
-    val homepage: String,
+    val homepage: Any,
     val hooks_url: String,
     val html_url: String,
     val id: Int,
@@ -47,7 +45,7 @@ data class UserRespositoriesItem(
     val labels_url: String,
     val language: String,
     val languages_url: String,
-    val license: License,
+    val license: Any,
     val merges_url: String,
     val milestones_url: String,
     val mirror_url: Any,
@@ -78,15 +76,7 @@ data class UserRespositoriesItem(
     val watchers_count: Int
 )
 
-data class License(
-    val key: String,
-    val name: String,
-    val node_id: String,
-    val spdx_id: String,
-    val url: String
-)
-
-data class Owner(
+data class OwnerUser(
     val avatar_url: String,
     val events_url: String,
     val followers_url: String,

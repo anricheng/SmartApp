@@ -38,6 +38,10 @@ class RepositoryModule {
     @Provides
     fun provideGitHubApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubRestFulApi::class.java, BuildConfig.GITHUB_URL)
 
+    @Singleton
+    @Provides
+    fun provideGithubUserApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubRestFulApi::class.java,BuildConfig.GITHUB_URL)
+    }
 
     @Singleton
     @Provides
@@ -55,4 +59,4 @@ class RepositoryModule {
     fun provideRetrofitManager(@ApplicationContext context: Context): RetrofitManager {
         return RetrofitManager(context)
     }
-}
+
