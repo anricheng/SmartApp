@@ -1,8 +1,7 @@
 package com.capgemini.entity
 
+import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
-
 @Parcelize
 data class UserInformation(
     val archive_url: String,
@@ -20,7 +19,6 @@ data class UserInformation(
     val created_at: String,
     val default_branch: String,
     val deployments_url: String,
-    val description: Any,
     val disabled: Boolean,
     val downloads_url: String,
     val events_url: String,
@@ -38,7 +36,6 @@ data class UserInformation(
     val has_pages: Boolean,
     val has_projects: Boolean,
     val has_wiki: Boolean,
-    val homepage: Any,
     val hooks_url: String,
     val html_url: String,
     val id: Int,
@@ -49,16 +46,14 @@ data class UserInformation(
     val labels_url: String,
     val language: String,
     val languages_url: String,
-    val license: Any,
     val merges_url: String,
     val milestones_url: String,
-    val mirror_url: Any,
     val name: String,
     val node_id: String,
     val notifications_url: String,
     val open_issues: Int,
     val open_issues_count: Int,
-    val owner: Owner,
+    val owner: OwnerUser,
     val `private`: Boolean,
     val pulls_url: String,
     val pushed_at: String,
@@ -78,7 +73,8 @@ data class UserInformation(
     val url: String,
     val watchers: Int,
     val watchers_count: Int
-)
+): Parcelable
+
 @Parcelize
 data class OwnerUser(
     val avatar_url: String,
@@ -99,4 +95,4 @@ data class OwnerUser(
     val subscriptions_url: String,
     val type: String,
     val url: String
-)
+):Parcelable

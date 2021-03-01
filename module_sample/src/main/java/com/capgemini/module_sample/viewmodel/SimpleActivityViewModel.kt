@@ -23,6 +23,7 @@ import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.S
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_SCROLL
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_USER_LIST
 import com.capgemini.repository.SampleRepository1
 import kotlinx.coroutines.launch
 
@@ -73,7 +74,7 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
             bundle.putSerializable("abc", list)
             Log.v("at", reponse.body().toString())
         }
-        ARouter.getInstance().build(SAMPLE_LIST).withBundle("bundle", bundle).navigation()
+        ARouter.getInstance().build(SAMPLE_USER_LIST).withBundle("bundle", bundle).navigation()
 //        NavigationHelper.navigation(SAMPLE_LIST,bundle)
     }
 

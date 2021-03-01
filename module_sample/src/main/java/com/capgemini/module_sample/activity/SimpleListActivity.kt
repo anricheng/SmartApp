@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.simple_activity_list.*
 
 @AndroidEntryPoint
-//@Route(path = SAMPLE_LIST)
+@Route(path = SAMPLE_LIST)
 class SimpleListActivity : BaseDataBindingActivity<SimpleActivityListBinding>() {
     private val viewModel by viewModels<SimpleListViewModel>()
 

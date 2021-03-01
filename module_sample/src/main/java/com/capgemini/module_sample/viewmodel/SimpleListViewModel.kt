@@ -21,4 +21,11 @@ class SimpleListViewModel @ViewModelInject constructor(private val repository1: 
             repository1.insertData(ItemEntity(content = "这是第${count.incrementAndGet()}条数据"))
         }
     }
+
+    fun createUser() {
+        viewModelScope.launch {
+            Log.d("aric",Thread.currentThread().name)
+            repository1.insertData(ItemEntity(content = "这是第${count.incrementAndGet()}条数据"))
+        }
+    }
 }

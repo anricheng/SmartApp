@@ -4,14 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="ListFragment">
-
         <variable
             name="user"
-            type="com.capgemini.module_sample.bean.UserEntity"
+            type="com.capgemini.entity.UserInformation"
              />
-
     </data>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="98dp">
@@ -23,7 +20,7 @@
             android:layout_height="64dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:src="@{user.picture}"
+            android:src="@{user.owner.avatar_url}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars"
@@ -37,7 +34,7 @@
             android:layout_toRightOf="@+id/avatar"
             android:textColor="@color/white"
             android:layout_marginTop="25dp"
-            android:text="@{user.userName}"
+            android:text="@{user.owner.login}"
             tools:text="@tools:sample/full_names"></TextView>
 
         <TextView
@@ -47,7 +44,7 @@
             android:layout_marginStart="@dimen/dp20"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/avatar"
-            android:text="@{user.projectName}"
+            android:text="@{user.language}"
             android:textColor="@color/white"
             android:textSize="@dimen/dp16"
             android:textStyle="bold"

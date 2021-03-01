@@ -9,6 +9,7 @@
         <activity android:name=".activity.SimpleListActivity"/>
         <activity android:name=".activity.SimpleCommunityHomeActivity"/>
         <activity android:name=".activity.SimpleScrollActivity"/>
+        <activity android:name=".activity.Hilt_SampleUserListActivity"/>
     </application>
 
 

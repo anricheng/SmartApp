@@ -19,4 +19,6 @@ class SampleRepository1(private val dao: SimpleEntityDao,private  val githubRest
     suspend fun getRepositories(username:String) = githubRestFulApi.getRepositories(username)
 
     suspend fun getUserInformation(username:String) = githubRestFulApi.getUserImformation(username)
+
+
 }
