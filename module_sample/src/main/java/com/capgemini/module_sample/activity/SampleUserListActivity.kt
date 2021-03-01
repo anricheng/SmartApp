@@ -47,7 +47,7 @@ class SampleUserListActivity : AppCompatActivity() {
         ARouter.getInstance().inject(this)
         val bundle: Bundle? = intent.getBundleExtra("bundle")
         val list:List<UserInformation> = bundle?.get("abc") as ArrayList<UserInformation>
-        Log.v("list",list.toString())
+//        Log.v("list",list.toString())
         return list}
 
 }
