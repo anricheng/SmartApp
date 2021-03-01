@@ -1,8 +1,11 @@
 package com.capgemini.entity
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ReposDetails(
     @SerializedName("id")
     val id: Int, // 76013351
@@ -19,7 +22,7 @@ data class ReposDetails(
     @SerializedName("html_url")
     val htmlUrl: String, // https://github.com/anricheng/MyHttp
     @SerializedName("description")
-    val description: Any, // null
+    val description: String, // null
     @SerializedName("fork")
     val fork: Boolean, // false
     @SerializedName("url")
@@ -111,7 +114,7 @@ data class ReposDetails(
     @SerializedName("svn_url")
     val svnUrl: String, // https://github.com/anricheng/MyHttp
     @SerializedName("homepage")
-    val homepage: Any, // null
+    val homepage: String, // null
     @SerializedName("size")
     val size: Int, // 144
     @SerializedName("stargazers_count")
@@ -133,7 +136,7 @@ data class ReposDetails(
     @SerializedName("forks_count")
     val forksCount: Int, // 0
     @SerializedName("mirror_url")
-    val mirrorUrl: Any, // null
+    val mirrorUrl: String, // null
     @SerializedName("archived")
     val archived: Boolean, // false
     @SerializedName("disabled")
@@ -141,7 +144,7 @@ data class ReposDetails(
     @SerializedName("open_issues_count")
     val openIssuesCount: Int, // 0
     @SerializedName("license")
-    val license: Any, // null
+    val license: String, // null
     @SerializedName("forks")
     val forks: Int, // 0
     @SerializedName("open_issues")
@@ -151,9 +154,9 @@ data class ReposDetails(
     @SerializedName("default_branch")
     val defaultBranch: String, // master
     @SerializedName("temp_clone_token")
-    val tempCloneToken: Any, // null
+    val tempCloneToken: String, // null
     @SerializedName("network_count")
     val networkCount: Int, // 0
     @SerializedName("subscribers_count")
     val subscribersCount: Int // 1
-)
+) : Parcelable

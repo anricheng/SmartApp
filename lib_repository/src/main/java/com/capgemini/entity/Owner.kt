@@ -1,8 +1,11 @@
 package com.capgemini.entity
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Owner(
     @SerializedName("login")
     val login: String, // anricheng
@@ -40,4 +43,4 @@ data class Owner(
     val type: String, // User
     @SerializedName("site_admin")
     val siteAdmin: Boolean // false
-)
+) : Parcelable

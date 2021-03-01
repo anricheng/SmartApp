@@ -1,12 +1,15 @@
 package com.capgemini.module_sample.viewmodel
 
 import android.Manifest
+import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alibaba.android.arouter.launcher.ARouter
 import com.capgemini.entity.TaskEntity
 import com.capgemini.lib_common.extendtions.isTrue
 import com.capgemini.lib_common.extendtions.otherwise
@@ -67,7 +70,15 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
     }
 
     fun navigateToReposDetailsActivity(){
-        NavigationHelper.navigation(SAMPLE_REPOS_DETAILS)
+
+        var bundle = Bundle()
+        viewModelScope.launch {
+            val response = sampleRepository1.getReposDetails("anricheng","MyNote")
+            bundle.putParcelable("reposDetails",response)
+            Log.d("请求成功01",bundle.toString())
+            //ARouter.getInstance().build(SAMPLE_REPOS_DETAILS).withBundle("abc",bundle).navigation()
+            NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,"reposDetails",response)
+        }
     }
 
 }
