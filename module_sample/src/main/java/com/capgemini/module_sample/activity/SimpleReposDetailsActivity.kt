@@ -33,30 +33,14 @@ class SimpleReposDetailsActivity : AppCompatActivity() {
 
         val dataBinding =DataBindingUtil.setContentView<SimpleActivityReposDetailsBinding>(this,R.layout.simple_activity_repos_details)
 
-        ARouter.getInstance().inject(this@SimpleReposDetailsActivity)
-        Log.d("拿到数据1",reposDetails.toString())
+        ARouter.getInstance().inject(this)
+        dataBinding.reposDetails = reposDetails
+        when{
+            reposDetails?.private == true -> textViewPrivate.setText("私人")
+            reposDetails?.private == false -> textViewPrivate.setText("公共")
+        }
 
-        Log.d("拿到数据2",intent.extras?.getParcelable<ReposDetails>("reposDetails").toString())
-
-
-        //val bundle = intent.getBundleExtra("abc")
-        //Log.d("=========",bundle?.get("reposDetails").toString())
-
-//        val api = RetrofitManager(this)?.createApi(ReposDetailsApi::class.java,"https://api.github.com/")
-//        api.getReposDetails("anricheng","MyNote").enqueue(object : Callback<ReposDetails>{
-//            override fun onResponse(call: Call<ReposDetails>, response: Response<ReposDetails>) {
-//                dataBinding.reposDetails = response.body()
-//                when{
-//                    response.body()?.private == true -> textViewPrivate.setText("私人")
-//                    response.body()?.private == false -> textViewPrivate.setText("公共")
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ReposDetails>, t: Throwable) {
-//
-//            }
-//        })
-
+        //Log.d("拿到数据2",intent.extras?.getParcelable<ReposDetails>("reposDetails").toString())
 
     }
 }
