@@ -26,7 +26,7 @@ import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.S
 import com.capgemini.repository.SampleRepository1
 import kotlinx.coroutines.launch
 
-class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampleRepository1: SampleRepository1) : ViewModel(){
+class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampleRepository1: SampleRepository1) : ViewModel() {
 
     private val _task = MutableLiveData<List<TaskEntity>>()
     val task: LiveData<List<TaskEntity>> = _task
@@ -41,23 +41,23 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
         }
     }
 
-    fun getPhonePermission(){
-        requestPermission(Manifest.permission.CALL_PHONE,Manifest.permission.READ_PHONE_STATE){
+    fun getPhonePermission() {
+        requestPermission(Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE) {
             toastLg("用户${it.isTrue { "同意了" }.otherwise { "拒绝了" }}")
         }
 
         viewModelScope.launch {
             val response = sampleRepository1.getRepositories("anricheng")
 
-            if (response.isSuccessful){
-                Log.d("aric","请求成功")
-            }else{
-                Log.d("aric","请求成功")
+            if (response.isSuccessful) {
+                Log.d("aric", "请求成功")
+            } else {
+                Log.d("aric", "请求成功")
             }
         }
     }
 
-    fun navigateToLogin(){
+    fun navigateToLogin() {
         NavigationHelper.navigation(SAMPLE_LOGIN)
     }
 
@@ -65,27 +65,25 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
         NavigationHelper.navigation(SampleModuleARouterPath.SAMPLE_FRAGMENT)
     }
 
-    fun navigateToListActivity(){
-        var bundle:Bundle = Bundle()
+    fun navigateToListActivity() {
+        var bundle: Bundle = Bundle()
         viewModelScope.launch {
             val reponse = sampleRepository1.getUserInformation("anricheng")
-            var list:ArrayList<UserInformation>? = reponse.body()
-            bundle.putSerializable("abc",list)
-            Log.v("at",reponse.body().toString())
+            var list: ArrayList<UserInformation>? = reponse.body()
+            bundle.putSerializable("abc", list)
+            Log.v("at", reponse.body().toString())
         }
-        ARouter.getInstance().build(SAMPLE_LIST).withBundle("bundle",bundle).navigation()
+        ARouter.getInstance().build(SAMPLE_LIST).withBundle("bundle", bundle).navigation()
 //        NavigationHelper.navigation(SAMPLE_LIST,bundle)
     }
-    }
 
 
-    fun navigateToCommunityActivity(){
+    fun navigateToCommunityActivity() {
         NavigationHelper.navigation(SAMPLE_COMMUNITY)
     }
 
 
-    fun navigateToScrollActivity(){
-
+    fun navigateToScrollActivity() {
         NavigationHelper.navigation(SAMPLE_SCROLL)
+    }
 }
-
