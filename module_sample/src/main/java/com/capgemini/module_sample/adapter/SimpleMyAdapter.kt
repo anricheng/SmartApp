@@ -38,15 +38,6 @@ class SimpleMyAdapter(private val userList:List<UserInformation>):RecyclerView.A
 
 
     class SimpleMyViewHolder(val binding: ListFragment) : RecyclerView.ViewHolder(binding.root) {
-        private var mIcon:ImageView
-        private var nameText:TextView
-        private var projectText:TextView
-
-        init {
-            mIcon = itemView.findViewById(R.id.avatar) as ImageView
-            nameText = itemView.findViewById(R.id.nameText) as TextView
-            projectText = itemView.findViewById(R.id.projectName) as TextView
-        }
 
         fun bind(userInformation: UserInformation) {
             binding.user = userInformation
