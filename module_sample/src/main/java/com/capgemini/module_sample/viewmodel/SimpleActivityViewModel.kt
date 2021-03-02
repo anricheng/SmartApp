@@ -13,6 +13,7 @@ import com.capgemini.entity.TaskEntity
 import com.capgemini.lib_common.extendtions.*
 import com.capgemini.lib_common.utils.SimpleTextWatcher
 import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.RouterExtra.Companion.REPOS_DERAILS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_COMMUNITY
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
@@ -70,8 +71,7 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
         showLoading()
         viewModelScope.launch {
             val response = sampleRepository1.getReposDetails("anricheng","MyNote")
-            NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,"reposDetails",response)
-            //NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,bundle)
+            NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,REPOS_DERAILS,response)
         }
     }
 

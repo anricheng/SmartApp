@@ -22,6 +22,7 @@ interface RouterExtra {
         const val SELECTED_TAB_INDEX_THREE = 3
         const val IGNORE_LOGIN = "ignore_login"
         const val INTERCEPTED_PATH = "intercepted_path"
+        const val REPOS_DERAILS = "reposDetails"
     }
 }
 

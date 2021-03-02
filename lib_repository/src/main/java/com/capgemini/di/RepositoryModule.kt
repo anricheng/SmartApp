@@ -3,7 +3,7 @@ package com.capgemini.di
 import android.content.Context
 import androidx.room.Room
 import com.capgemini.api.CommunityApi
-import com.capgemini.api.ReposDetailsApi
+import com.capgemini.api.GithubApi
 import com.capgemini.database.SmartDataBase
 import com.capgemini.http.BuildConfig
 import com.capgemini.http.RetrofitManager
@@ -22,7 +22,7 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideSampleRepository1(dataBase: SmartDataBase,reposDetailsApi: ReposDetailsApi) = SampleRepository1(dataBase.simpleEntityDao(),reposDetailsApi)
+    fun provideSampleRepository1(dataBase: SmartDataBase,reposDetailsApi: GithubApi) = SampleRepository1(dataBase.simpleEntityDao(),reposDetailsApi)
 
 
     @Singleton
@@ -37,7 +37,7 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideReposDetailsApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(ReposDetailsApi::class.java, BuildConfig.GITHUB)
+    fun provideReposDetailsApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubApi::class.java, BuildConfig.GITHUB)
 
 
     @Singleton

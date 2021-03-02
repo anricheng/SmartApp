@@ -16,7 +16,7 @@ data class ReposDetails(
     @SerializedName("full_name")
     val fullName: String, // anricheng/MyHttp
     @SerializedName("private")
-    val `private`: Boolean, // false
+    val isPrivate: Boolean, // false
     @SerializedName("owner")
     val owner: Owner,
     @SerializedName("html_url")

@@ -1,12 +1,11 @@
 package com.capgemini.repository
 
 import androidx.lifecycle.LiveData
-import com.capgemini.api.ReposDetailsApi
+import com.capgemini.api.GithubApi
 import com.capgemini.database.dao.SimpleEntityDao
 import com.capgemini.entity.ItemEntity
-import com.capgemini.entity.ReposDetails
 
-class SampleRepository1(private val dao: SimpleEntityDao, private val reposDetailsApi: ReposDetailsApi) {
+class SampleRepository1(private val dao: SimpleEntityDao, private val githubApi: GithubApi) {
 
     fun getTask(): LiveData<List<ItemEntity>> {
         return dao.observeData()
@@ -16,5 +15,5 @@ class SampleRepository1(private val dao: SimpleEntityDao, private val reposDetai
         dao.insertData(data)
     }
 
-    suspend fun getReposDetails(owner: String,repo: String) = reposDetailsApi.getReposDetails(owner,repo)
+    suspend fun getReposDetails(owner: String,repo: String) = githubApi.getReposDetails(owner,repo)
 }

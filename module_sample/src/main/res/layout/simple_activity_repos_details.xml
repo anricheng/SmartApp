@@ -113,7 +113,7 @@
             android:id="@+id/textViewStar"
             style="@style/simplemytextstyle"
             android:layout_marginStart="8dp"
-            android:text='@{Integer.toString(reposDetails.stargazersCount)+@string/simple_star}'
+            android:text="@{String.format(@string/simple_star,reposDetails.stargazersCount)}"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
             app:layout_constraintStart_toEndOf="@id/imageViewStar"
             app:layout_constraintTop_toTopOf="@id/imageViewStar"
@@ -137,7 +137,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageViewFolk"
             app:layout_constraintStart_toEndOf="@id/imageViewFolk"
             tools:text="0个复刻"
-            android:text='@{Integer.toString(reposDetails.forksCount)+@string/simple_fork}'>
+            android:text="@{String.format(@string/simple_fork,reposDetails.forksCount)}">
         </TextView>
 
         <Button
@@ -259,7 +259,7 @@
             app:layout_constraintTop_toTopOf="@id/imageViewWatch"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewWatch"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
-            tools:text="1"
+            tools:text="0"
             android:text="@{Integer.toString(reposDetails.watchersCount)}"
             android:textSize="20dp">
         </TextView>

@@ -9,12 +9,4 @@ import retrofit2.Response
 
 class SimpleReposDetailsViewModel @ViewModelInject constructor(private val repository1: SampleRepository1) : ViewModel(){
 
-//    lateinit var response: ReposDetails
-//    suspend fun create(){
-//        response= repository1.getReposDetails("anricheng","MyNote")
-//        val bundle = Bundle()
-//        bundle.putParcelable("reposDetails",response)
-//    }
-
-
 }
