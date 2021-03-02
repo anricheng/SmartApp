@@ -18,6 +18,7 @@ import com.capgemini.lib_common.extendtions.requestPermission
 import com.capgemini.lib_common.extendtions.toastLg
 import com.capgemini.lib_common.utils.SimpleTextWatcher
 import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.RouterExtra
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_COMMUNITY
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
@@ -62,7 +63,7 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
             val reponse = sampleRepository1.getUserInformation("anricheng")
             var list: ArrayList<UserInformation>? = reponse.body()
             Log.v("at", reponse.body().toString())
-            NavigationHelper.navigation(SAMPLE_LIST,"abc",reponse)
+            NavigationHelper.navigation(SAMPLE_LIST, RouterExtra.USERIMFORMATION,reponse)
         }
     }
 

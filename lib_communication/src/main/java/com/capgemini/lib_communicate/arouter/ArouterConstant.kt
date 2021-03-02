@@ -22,6 +22,7 @@ interface RouterExtra {
         const val SELECTED_TAB_INDEX_THREE = 3
         const val IGNORE_LOGIN = "ignore_login"
         const val INTERCEPTED_PATH = "intercepted_path"
+        const val USERIMFORMATION = "abc"
     }
 }
 
@@ -66,6 +67,6 @@ interface SampleModuleARouterPath {
         const val SAMPLE_LIST = "/sample/list"
         const val SAMPLE_COMMUNITY = "/sample/community"
         const val SAMPLE_SCROLL = "/sample/scroll"
-        const val SAMPLE_USER_LIST = "/users/username/repos"
+        const val SAMPLE_USER_LIST = "/sample/username/repos"
     }
 }
