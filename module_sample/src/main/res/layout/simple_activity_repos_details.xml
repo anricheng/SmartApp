@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="reposDetails"
+            type="com.capgemini.entity.ReposDetails" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/include_toolbar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.23" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/imageViewHead"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:src="@drawable/simple_repos_details_head_portrait">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textViewUser"
+            style="@style/simplemytextstyle"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewHead"
+            app:layout_constraintStart_toEndOf="@id/imageViewHead"
+            app:layout_constraintTop_toTopOf="@+id/imageViewHead"
+            tools:text="anricheng"
+            android:text="@{reposDetails.owner.login}">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewHead"
+            app:layout_constraintStart_toStartOf="@id/imageViewHead"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            tools:text="JTPLearning"
+            android:text="@{reposDetails.name}">
+        </TextView>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageViewPrivate"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1"
+            android:src="@drawable/ic_lock">
+        </ImageView>
+        <TextView
+            android:id="@+id/textViewPrivate"
+            style="@style/simplemytextstyle"
+            app:layout_constraintTop_toTopOf="@+id/imageViewPrivate"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewPrivate"
+            app:layout_constraintStart_toEndOf="@id/imageViewPrivate"
+            tools:text="私人">
+        </TextView>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/imageViewStar"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewPrivate"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_star">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/textViewStar"
+            style="@style/simplemytextstyle"
+            android:layout_marginStart="8dp"
+            android:text="@{String.format(@string/simple_star,reposDetails.stargazersCount)}"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
+            app:layout_constraintStart_toEndOf="@id/imageViewStar"
+            app:layout_constraintTop_toTopOf="@id/imageViewStar"
+            app:layout_constraintVertical_bias="0.6"
+            tools:text="0个星标"></TextView>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageViewFolk"
+            app:layout_constraintTop_toTopOf="@id/imageViewStar"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
+            app:layout_constraintStart_toEndOf="@id/textViewStar"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ic_folk">
+        </ImageView>
+        <TextView
+            android:id="@+id/textViewFolk"
+            style="@style/simplemytextstyle"
+            app:layout_constraintTop_toTopOf="@id/imageViewFolk"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewFolk"
+            app:layout_constraintStart_toEndOf="@id/imageViewFolk"
+            tools:text="0个复刻"
+            android:text="@{String.format(@string/simple_fork,reposDetails.forksCount)}">
+        </TextView>
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonStar"
+            app:layout_constraintTop_toBottomOf="@id/imageViewStar"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            android:layout_marginTop="10dp"
+            android:background="#D8ECECEC"
+            android:text="星 标"
+            android:textColor="#1492F6">
+        </Button>
+
+        <Button
+            android:id="@+id/buttonWatch"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="关 注 中"
+            android:textColor="#7ADC09"
+            android:background="#D8ECECEC"
+            app:layout_constraintStart_toEndOf="@id/buttonStar"
+            app:layout_constraintTop_toTopOf="@id/buttonStar">
+        </Button>
+
+        <View
+            android:id="@+id/viewLine1"
+            app:layout_constraintTop_toTopOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="1px"
+            android:background="#C5C5C5"
+            android:layout_width="fill_parent">
+        </View>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageViewIssues"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            android:src="@drawable/ic_issues">
+        </ImageView>
+        <TextView
+            android:id="@+id/textViewIssues"
+            style="@style/simplemytextstyle"
+            app:layout_constraintTop_toTopOf="@id/imageViewIssues"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewIssues"
+            app:layout_constraintStart_toEndOf="@id/imageViewIssues"
+            android:text="议题">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewIssues2"
+            app:layout_constraintTop_toTopOf="@id/imageViewIssues"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewIssues"
+            app:layout_constraintEnd_toEndOf="@id/guideline5"
+            tools:text="0"
+            android:text="@{Integer.toString(reposDetails.openIssuesCount)}"
+            android:textSize="20dp">
+        </TextView>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageViewPull"
+            app:layout_constraintTop_toBottomOf="@id/imageViewIssues"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_pull">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPull"
+            app:layout_constraintTop_toTopOf="@id/imageViewPull"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewPull"
+            app:layout_constraintStart_toEndOf="@id/imageViewPull"
+            android:layout_marginLeft="10dp"
+            android:text="拉取请求">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPull2"
+            app:layout_constraintTop_toTopOf="@id/imageViewPull"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewPull"
+            app:layout_constraintEnd_toEndOf="@id/guideline5"
+            tools:text="0"
+            android:text="@{Integer.toString(reposDetails.subscribersCount)}"
+            android:textSize="20dp">
+        </TextView>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageViewWatch"
+            app:layout_constraintTop_toBottomOf="@id/imageViewPull"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_watch">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewWatch"
+            app:layout_constraintTop_toTopOf="@id/imageViewWatch"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewWatch"
+            app:layout_constraintStart_toEndOf="@id/imageViewWatch"
+            android:layout_marginLeft="10dp"
+            android:text="关注者">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewWatch2"
+            app:layout_constraintTop_toTopOf="@id/imageViewWatch"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewWatch"
+            app:layout_constraintEnd_toEndOf="@id/guideline5"
+            tools:text="0"
+            android:text="@{Integer.toString(reposDetails.watchersCount)}"
+            android:textSize="20dp">
+        </TextView>
+
+        <View
+            android:id="@+id/viewLine2"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewWatch"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="1px"
+            android:background="#C5C5C5"
+            android:layout_width="fill_parent">
+        </View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewBranch"
+            app:layout_constraintTop_toBottomOf="@+id/viewLine2"
+            app:layout_constraintStart_toEndOf="@id/guideline4"
+            android:layout_marginTop="15dp"
+            android:textSize="18dp"
+            android:text="main">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewBranch2"
+            app:layout_constraintTop_toTopOf="@id/textViewBranch"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewBranch"
+            app:layout_constraintEnd_toEndOf="@id/guideline5"
+            android:text="更改"
+            android:textColor="#0682E4"
+            android:textSize="15dp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCode"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewBranch"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            android:text="浏览代码"
+            android:textSize="18dp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCommit"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCode"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            android:text="提交"
+            android:textSize="18dp">
+        </TextView>
+
+        <View
+            android:id="@+id/viewLine3"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCommit"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="15dp"
+            android:background="#EDEDED"
+            android:layout_width="fill_parent">
+        </View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewDescribe"
+            app:layout_constraintTop_toTopOf="@id/guideline3"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            tools:text="JTPLearning"
+            android:text="@{reposDetails.name}"
+            android:textSize="20dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewDescribeDetails"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDescribe"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            tools:text="This is learning project to record JTP's daily progress."
+            android:text="@{reposDetails.description.toString()}"
+            android:textSize="18dp">
+        </TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

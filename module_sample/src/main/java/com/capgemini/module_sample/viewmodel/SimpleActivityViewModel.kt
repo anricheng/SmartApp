@@ -1,23 +1,24 @@
 package com.capgemini.module_sample.viewmodel
 
 import android.Manifest
+import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capgemini.entity.TaskEntity
-import com.capgemini.lib_common.extendtions.isTrue
-import com.capgemini.lib_common.extendtions.otherwise
-import com.capgemini.lib_common.extendtions.requestPermission
-import com.capgemini.lib_common.extendtions.toastLg
+import com.capgemini.lib_common.extendtions.*
 import com.capgemini.lib_common.utils.SimpleTextWatcher
 import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.RouterExtra.Companion.REPOS_DERAILS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_COMMUNITY
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS_DETAILS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_SCROLL
 import com.capgemini.repository.SampleRepository1
 import kotlinx.coroutines.launch
@@ -63,6 +64,15 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
     fun navigateToScrollActivity(){
         NavigationHelper.navigation(SAMPLE_SCROLL)
+    }
+
+    fun navigateToReposDetailsActivity(){
+
+        showLoading()
+        viewModelScope.launch {
+            val response = sampleRepository1.getReposDetails("anricheng","MyNote")
+            NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,REPOS_DERAILS,response)
+        }
     }
 
 }
