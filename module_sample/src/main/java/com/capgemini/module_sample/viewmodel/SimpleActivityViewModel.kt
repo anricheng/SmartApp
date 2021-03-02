@@ -46,16 +46,6 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
         requestPermission(Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE) {
             toastLg("用户${it.isTrue { "同意了" }.otherwise { "拒绝了" }}")
         }
-
-        viewModelScope.launch {
-            val response = sampleRepository1.getRepositories("anricheng")
-
-            if (response.isSuccessful) {
-                Log.d("aric", "请求成功")
-            } else {
-                Log.d("aric", "请求成功")
-            }
-        }
     }
 
     fun navigateToLogin() {
@@ -71,13 +61,10 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
         viewModelScope.launch {
             val reponse = sampleRepository1.getUserInformation("anricheng")
             var list: ArrayList<UserInformation>? = reponse.body()
-            bundle.putSerializable("abc", list)
             Log.v("at", reponse.body().toString())
+            NavigationHelper.navigation(SAMPLE_LIST,"abc",reponse)
         }
-        ARouter.getInstance().build(SAMPLE_USER_LIST).withBundle("bundle", bundle).navigation()
-//        NavigationHelper.navigation(SAMPLE_LIST,bundle)
     }
-
 
     fun navigateToCommunityActivity() {
         NavigationHelper.navigation(SAMPLE_COMMUNITY)

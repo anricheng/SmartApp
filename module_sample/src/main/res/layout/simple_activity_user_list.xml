@@ -2,58 +2,80 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data class="MyDataBinding">
-
         <variable
             name="viewmodel"
             type="com.capgemini.module_sample.viewmodel.SimpleListViewModel" />
-        <variable
-            name="eventHandler"
-            type="com.capgemini.module_sample.handler.EventHandlers" />
-
     </data>
-
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@color/cardview_dark_background">
         <include layout="@layout/include_toolbar" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:paddingLeft="@dimen/dp2"
 
-                android:src="@drawable/left"
-                android:layout_gravity="center"
-                android:onClick="@{eventHandler::imageOnClick}"
-                ></ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="仓库"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                ></TextView>
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:paddingLeft="@dimen/dp2"
+            android:src="@drawable/left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="仓库"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintRight_toRightOf="@id/img"
+            app:layout_constraintStart_toEndOf="@+id/img"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             app:layout_constrainedHeight="true"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/text"
             tools:itemCount="10"
+            tools:layout_editor_absoluteX="91dp"
             tools:listitem="@layout/simple_listfragment_list" />
 
-    </LinearLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/simpleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/simpleGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/simpleBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="recyclerView" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/simpleGuideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

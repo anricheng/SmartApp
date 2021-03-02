@@ -20,5 +20,4 @@ dependencies {
     implementation android_dependencies["recyclerview"]
     implementation android_dependencies["multidex"]
     kapt third_libs["arouter-compiler"]
-
 }

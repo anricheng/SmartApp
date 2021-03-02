@@ -27,6 +27,7 @@
             tools:srcCompat="@tools:sample/avatars[6]" />
 
         <TextView
+            android:id="@+id/nameText"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp20"
@@ -35,9 +36,10 @@
             android:textColor="@color/white"
             android:layout_marginTop="25dp"
             android:text="@{user.owner.login}"
-            tools:text="@tools:sample/full_names"></TextView>
+            tools:text="@tools:sample/full_names"/>
 
         <TextView
+            android:id="@+id/projectName"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/avatar"
@@ -49,7 +51,7 @@
             android:textSize="@dimen/dp16"
             android:textStyle="bold"
             android:textColorLink="@color/white"
-            tools:text="@tools:sample/full_names"></TextView>
+            tools:text="@tools:sample/full_names"/>
 
     </RelativeLayout>
 </layout>

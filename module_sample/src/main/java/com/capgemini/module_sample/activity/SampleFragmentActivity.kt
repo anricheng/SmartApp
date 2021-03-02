@@ -11,12 +11,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 @Route(path = SAMPLE_FRAGMENT)
 class SampleFragmentActivity : BaseActivity() {
-    
     override fun getLayoutId(): Int = R.layout.simple_fragment
-
     override fun setupView() {
         replaceFragment(R.id.fragment_container, SimpleFragment.newInstance("zhou1"))
     }
-
     override fun isMultiFragmentActivity()= true
 }

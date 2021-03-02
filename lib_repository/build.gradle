@@ -61,7 +61,4 @@ dependencies {
 
     //BlankJ  https://github.com/Blankj/AndroidUtilCode
     compileOnly 'com.blankj:utilcodex:1.30.4'
-
-    //@Parcelize
-    apply plugin: 'kotlin-android-extensions'
 }
