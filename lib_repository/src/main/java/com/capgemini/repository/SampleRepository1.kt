@@ -15,5 +15,7 @@ class SampleRepository1(private val dao: SimpleEntityDao, private val githubApi:
         dao.insertData(data)
     }
 
-    suspend fun getReposDetails(owner: String,repo: String) = githubApi.getReposDetails(owner,repo)
+    suspend fun getReposDetails(owner: String, repo: String) = githubApi.getReposDetails(owner, repo)
+
+    suspend fun getRepositories(username: String) = githubApi.getRepositories(username)
 }
