@@ -58,14 +58,15 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
     }
 
     fun navigateToListActivity() {
-        var bundle: Bundle = Bundle()
-        viewModelScope.launch {
-            val reponse = sampleRepository1.getUserInformation("anricheng")
-            var list: ArrayList<UserInformation>? = reponse.body()
-            Log.v("at", reponse.body().toString())
-            NavigationHelper.navigation(SAMPLE_LIST, RouterExtra.USERIMFORMATION,reponse)
-        }
-    }
+            var list:ArrayList<UserInformation>? = null
+            viewModelScope.launch {
+                val reponse = sampleRepository1.getUserInformation("anricheng")
+                list = reponse.body()
+                val bundle = Bundle()
+                bundle.putParcelableArrayList(RouterExtra.USERIMFORMATION, list)
+                Log.v("at", reponse.body().toString())
+                NavigationHelper.navigation(SAMPLE_USER_LIST, RouterExtra.USERIMFORMATION,list!!)
+            }}
 
     fun navigateToCommunityActivity() {
         NavigationHelper.navigation(SAMPLE_COMMUNITY)

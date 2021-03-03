@@ -63,6 +63,7 @@ object NavigationHelper {
                 is Long -> withLong(key, value)
                 is Parcelable -> withParcelable(key, value)
                 is Serializable -> withSerializable(key, value)
+                is ArrayList<*>  -> withParcelableArrayList(key,(value as java.util.ArrayList<out Parcelable>) )
                 else -> throw IllegalArgumentException("Unsupported type.")
             }
         }
