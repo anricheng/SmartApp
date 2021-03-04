@@ -1,5 +1,6 @@
 package com.capgemini.module_sample.activity
 
+import android.util.Log
 import android.view.WindowManager
 import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -27,14 +28,19 @@ class SimpleMainActivity : BaseDataBindingActivity<SimpleActivityMainBinding>() 
 
     override fun setupView() {
         mToolbarTitle.text = "样例主页"
+        val uri = intent.data
+        if (uri != null) {
+            val code: String? = uri.getQueryParameter("code")
+            Log.d("---------code",code.toString())
+        }
     }
 
     override fun setupListener() {
         toggleStatusBar.throttleFirstClick {
             isStatusBar = isStatusBar.isTrue {
                 window.setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 false
             }.otherwise {
                 window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)

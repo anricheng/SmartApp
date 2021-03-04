@@ -3,8 +3,20 @@
     package="com.capgemini.module_sample">
 
     <application>
+        <activity android:name=".activity.SimpleGitHubLoginActivity"/>
         <activity android:name=".activity.SimpleReposDetailsActivity"/>
-        <activity android:name=".activity.SimpleMainActivity" />
+        <activity android:name=".activity.SimpleMainActivity" >
+            <intent-filter>
+                <data
+                    android:scheme="smart"
+                    android:host="sample"
+                    android:port="8080"
+                    android:path="/github/login"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.SimpleLoginActivity" />
         <activity android:name=".activity.SampleFragmentActivity" />
         <activity android:name=".activity.SimpleListActivity" />
