@@ -19,6 +19,7 @@ import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.S
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_GITHUB_LOGIN
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS_DETAILS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_SCROLL
 import com.capgemini.repository.SampleRepository1
@@ -65,6 +66,10 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
     fun navigateToScrollActivity(){
         NavigationHelper.navigation(SAMPLE_SCROLL)
+    }
+
+    fun navigateToReposActivity(){
+        NavigationHelper.navigation(SAMPLE_REPOS)
     }
 
     fun navigateToReposDetailsActivity(){
