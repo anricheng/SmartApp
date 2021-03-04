@@ -51,14 +51,15 @@
             app:layout_constraintGuide_percent="0.95" />
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
             android:id="@+id/imageViewHead"
+            image_url="@{reposDetails.owner.avatarUrl}"
+            isCircle="@{true}"
+            android:layout_width="25dp"
+            android:layout_height="24dp"
             android:layout_marginTop="5dp"
+            android:src="@drawable/simple_repos_details_head_portrait"
             app:layout_constraintStart_toStartOf="@id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            android:src="@drawable/simple_repos_details_head_portrait">
-        </ImageView>
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"></ImageView>
 
         <TextView
             android:id="@+id/textViewUser"

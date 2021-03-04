@@ -74,10 +74,12 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
     fun navigateToReposDetailsActivity(){
 
-        showLoading()
+
         viewModelScope.launch {
+            showLoading()
             val response = sampleRepository1.getReposDetails("anricheng","MyNote")
             NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,REPOS_DERAILS,response)
+            hideLoading()
         }
     }
 
