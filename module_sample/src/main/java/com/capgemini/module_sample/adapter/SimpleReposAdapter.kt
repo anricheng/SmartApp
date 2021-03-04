@@ -33,10 +33,11 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(getItem(position))
-        holder.itemView.setOnClickListener({
-                v -> msetOnClickListemer?.Onclick(holder.toString())
+        holder.itemView.setOnClickListener({ v ->
+            msetOnClickListemer?.Onclick(holder.toString())
         })
     }
+
     class ItemViewHolder(val binding: SimpleItemLayoutRepositoryBinding) : RecyclerView.ViewHolder(
         binding.root
     ) {
@@ -44,12 +45,20 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
             binding.item = item
         }
     }
-class RepositoryItemDiffCallback : DiffUtil.ItemCallback<RepositoriesItem>() {
-    override fun areItemsTheSame(oldItem: RepositoriesItem, newItem: RepositoriesItem): Boolean {
-        return oldItem.name ==newItem.name
-    }
 
-    override fun areContentsTheSame(oldItem: RepositoriesItem, newItem: RepositoriesItem): Boolean {
-        return oldItem == newItem
+    class RepositoryItemDiffCallback : DiffUtil.ItemCallback<RepositoriesItem>() {
+        override fun areItemsTheSame(
+            oldItem: RepositoriesItem,
+            newItem: RepositoriesItem
+        ): Boolean {
+            return oldItem.name == newItem.name
+        }
+
+        override fun areContentsTheSame(
+            oldItem: RepositoriesItem,
+            newItem: RepositoriesItem
+        ): Boolean {
+            return oldItem == newItem
+        }
     }
 }
