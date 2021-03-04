@@ -27,7 +27,6 @@ class ModuleEntranceActivity : BaseDataBindingActivity<MainActivityModuleEntranc
     override fun setupView() {
         mToolbarTitle.text = "测试主页"
         mToolbarRightTitle.text = "QA_VERSION"
-        mToolbar.setBackgroundColorE(R.color.colorPrimary)
     }
 
 

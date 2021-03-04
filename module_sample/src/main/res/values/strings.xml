@@ -2,6 +2,7 @@
 
     <string name="simple_login">登录</string>
     <string name="simple_hide_show_status_bar">隐藏状态栏</string>
+    <string name="simple_loading_context">加载仓库中...</string>
     <string name="simple_gongfa">
         总纲\n
         天之道，损有余而补不足，是故虚胜实，不足胜有余。其意博，其理奥，其趣深，天地之象分，阴阳之候列，

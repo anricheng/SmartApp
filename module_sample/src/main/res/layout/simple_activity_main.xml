@@ -85,6 +85,25 @@
             android:textAllCaps="false"
             android:textStyle="bold" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:onClick="@{()->viewModel.navigateToReposActivity()}"
+            android:text="goToReposActivity"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/reposDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:text="goToReposDetailsActivity"
+            android:onClick="@{()->viewModel.navigateToReposDetailsActivity()}"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
         <com.capgemini.lib_widget.DeletableEditText
             android:fontFamily="@font/antennawgl_extralight"
             android:paddingLeft="@dimen/dp10"

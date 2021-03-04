@@ -3,13 +3,14 @@
     package="com.capgemini.module_sample">
 
     <application>
-        <activity android:name=".activity.SimpleMainActivity"/>
-        <activity android:name=".activity.SimpleLoginActivity"/>
-        <activity android:name=".activity.SampleFragmentActivity"/>
-        <activity android:name=".activity.SimpleListActivity"/>
-        <activity android:name=".activity.SimpleCommunityHomeActivity"/>
-        <activity android:name=".activity.SimpleScrollActivity"/>
+        <activity android:name=".activity.SimpleReposDetailsActivity"/>
+        <activity android:name=".activity.SimpleMainActivity" />
+        <activity android:name=".activity.SimpleLoginActivity" />
+        <activity android:name=".activity.SampleFragmentActivity" />
+        <activity android:name=".activity.SimpleListActivity" />
+        <activity android:name=".activity.SimpleCommunityHomeActivity" />
+        <activity android:name=".activity.SimpleScrollActivity" />
+        <activity android:name=".activity.SimpleReposActivity" />
     </application>
-
 
 </manifest>

@@ -29,8 +29,6 @@ class SimpleMainActivity : BaseDataBindingActivity<SimpleActivityMainBinding>() 
         mToolbarTitle.text = "样例主页"
     }
 
-
-
     override fun setupListener() {
         toggleStatusBar.throttleFirstClick {
             isStatusBar = isStatusBar.isTrue {
