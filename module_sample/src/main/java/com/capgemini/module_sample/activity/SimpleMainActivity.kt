@@ -28,11 +28,6 @@ class SimpleMainActivity : BaseDataBindingActivity<SimpleActivityMainBinding>() 
 
     override fun setupView() {
         mToolbarTitle.text = "样例主页"
-        val uri = intent.data
-        if (uri != null) {
-            val code: String? = uri.getQueryParameter("code")
-            Log.d("---------code",code.toString())
-        }
     }
 
     override fun setupListener() {

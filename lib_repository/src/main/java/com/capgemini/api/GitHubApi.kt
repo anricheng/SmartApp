@@ -3,7 +3,9 @@ package com.capgemini.api
 import com.capgemini.entity.ReposDetails
 import com.capgemini.entity.RepositoriesItem
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface GithubApi {
     @GET("/repos/{owner}/{repo}")

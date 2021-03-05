@@ -50,6 +50,7 @@ afterEvaluate {
                 buildConfigField("String", "BASE_URL", "\"http://www.baidu.com\"")
                 buildConfigField("String", "COMMUNITY_URL", "\"http://123.56.232.18:8080/serverdemo/\"")
                 buildConfigField("String", "GITHUB", "\"https://api.github.com/\"")
+                buildConfigField("String","GITHUB_TOKEN","\"https://github.com/login/oauth/\"")
                 buildConfigField("String", "GITHUB_LOGIN", "\"https://github.com/login/oauth/authorize?client_id=264b448455ce3858fd75&scope=all&state=\"")
                 dimension 'environment'
             }

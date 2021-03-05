@@ -3,6 +3,8 @@ package com.capgemini.http;
 import android.content.Context;
 
 import com.capgemini.util.HttpsUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.readystatesoftware.chuck.ChuckInterceptor;
 
 import java.util.HashMap;
@@ -53,12 +55,13 @@ public class RetrofitManager {
         if (retrofitHashMap.containsKey(baseUrl)) {
             return retrofitHashMap.get(baseUrl);
         }
+        Gson gson = new GsonBuilder().setLenient().disableHtmlEscaping().create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         retrofitHashMap.put(baseUrl, retrofit);
         return retrofit;
