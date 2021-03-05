@@ -23,6 +23,7 @@ interface RouterExtra {
         const val IGNORE_LOGIN = "ignore_login"
         const val INTERCEPTED_PATH = "intercepted_path"
         const val REPOS_DERAILS = "reposDetails"
+        const val REPOS_LIST = "reposList"
     }
 }
 

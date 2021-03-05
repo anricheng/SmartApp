@@ -221,17 +221,17 @@
             android:layout_marginLeft="10dp"
             android:text="拉取请求">
         </TextView>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/textViewPull2"
-            app:layout_constraintTop_toTopOf="@id/imageViewPull"
+            android:layout_width="9dp"
+            android:layout_height="22dp"
+            android:text="@{Integer.toString(reposDetails.subscribersCount)}"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewPull"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
-            tools:text="0"
-            android:text="@{Integer.toString(reposDetails.subscribersCount)}"
-            android:textSize="20dp">
-        </TextView>
+            app:layout_constraintTop_toTopOf="@id/imageViewPull"
+            tools:text="0"></TextView>
 
         <ImageView
             android:layout_width="30dp"

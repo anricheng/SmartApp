@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.capgemini.entity.RepositoriesItem
 import com.capgemini.lib_common.databinding.onClick
+import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.databinding.SimpleItemLayoutRepositoryBinding
 
@@ -17,9 +19,13 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
     RepositoryItemDiffCallback()
 ) {
     private var msetOnClickListemer: setOnClickListener? = null
+    private var repositoriesItem:RepositoriesItem? = null
     fun setItemClickListener(s1: setOnClickListener) {
         msetOnClickListemer = s1
     }
+//    fun setItemClickListener() {
+//        NavigationHelper.navigation(SampleModuleARouterPath.SAMPLE_REPOS_DETAILS)
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding: SimpleItemLayoutRepositoryBinding = DataBindingUtil.inflate(
@@ -32,9 +38,10 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        repositoriesItem = getItem(position)
+        holder.bind(repositoriesItem!!)
         holder.itemView.setOnClickListener({ v ->
-            msetOnClickListemer?.Onclick(holder.toString())
+            msetOnClickListemer?.Onclick(repositoriesItem!!)
         })
     }
 
