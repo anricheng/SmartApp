@@ -42,8 +42,7 @@ class SimpleGitHubLoginActivity : BaseActivity() {
         val uri = intent.data
         if (uri != null) {
             val code: String? = uri.getQueryParameter("code")
-            Log.d("---------code",code.toString())
-            ProfileInfo.accessToken = code.toString()
+            ProfileInfo.code = code.toString()
             NavigationHelper.navigation(SAMPLE_MAIN)
             viewModel.getToken()
         }

@@ -52,6 +52,8 @@ afterEvaluate {
                 buildConfigField("String", "GITHUB", "\"https://api.github.com/\"")
                 buildConfigField("String","GITHUB_TOKEN","\"https://github.com/login/oauth/\"")
                 buildConfigField("String", "GITHUB_LOGIN", "\"https://github.com/login/oauth/authorize?client_id=264b448455ce3858fd75&scope=all&state=\"")
+                buildConfigField("String","CLIENT_ID","\"264b448455ce3858fd75\"")
+                buildConfigField("String","CLIENT_SECRET","\"b04ce727b25916355e8c0a083f58b4a832f79fd6\"")
                 dimension 'environment'
             }
 
