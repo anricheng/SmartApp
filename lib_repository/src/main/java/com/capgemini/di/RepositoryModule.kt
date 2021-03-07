@@ -3,6 +3,7 @@ package com.capgemini.di
 import android.content.Context
 import androidx.room.Room
 import com.capgemini.api.CommunityApi
+import com.capgemini.api.GitHubToken
 import com.capgemini.api.GithubApi
 import com.capgemini.database.SmartDataBase
 import com.capgemini.http.BuildConfig
@@ -22,7 +23,7 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideSampleRepository1(dataBase: SmartDataBase,reposDetailsApi: GithubApi) = SampleRepository1(dataBase.simpleEntityDao(),reposDetailsApi)
+    fun provideSampleRepository1(dataBase: SmartDataBase,githubApi: GithubApi,gitHubToken: GitHubToken) = SampleRepository1(dataBase.simpleEntityDao(),githubApi,gitHubToken)
 
 
     @Singleton
@@ -37,7 +38,11 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideReposDetailsApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubApi::class.java, BuildConfig.GITHUB)
+    fun provideGithubApi(retrofitManager: RetrofitManager) = retrofitManager.createApi(GithubApi::class.java, BuildConfig.GITHUB)
+
+    @Singleton
+    @Provides
+    fun provideGithubToken(retrofitManager: RetrofitManager) = retrofitManager.createApi(GitHubToken::class.java, BuildConfig.GITHUB_TOKEN)
 
 
     @Singleton
