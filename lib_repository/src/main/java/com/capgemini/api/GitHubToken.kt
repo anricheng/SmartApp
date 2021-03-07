@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface GitHubToken {
 
     @Headers("Accept: application/json")
-    @POST("access_token/")
+    @POST("/login/oauth/access_token/")
     suspend fun getToken(
             @Query("client_id")client_id: String,
             @Query("client_secret")client_secret: String,

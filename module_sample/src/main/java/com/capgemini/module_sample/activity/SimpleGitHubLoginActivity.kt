@@ -28,11 +28,12 @@ class SimpleGitHubLoginActivity : BaseActivity() {
     private val viewModel by viewModels<SimpleGithubLoginViewModel>()
 
     val randomState = UUID.randomUUID().toString()
-    val uri = Uri.parse(BuildConfig.GITHUB_LOGIN+randomState)
+    val uri = Uri.parse(BuildConfig.GITHUB_TOKEN+"login/oauth/authorize?client_id="+BuildConfig.CLIENT_ID+"&scope=all&state="+randomState)
 
     override fun setupListener() {
         gitHubLoginButton.setOnClickListener {
             Log.d("===", "点击监听")
+            Log.d("uri=",uri.toString())
             intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
         }

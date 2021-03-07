@@ -55,13 +55,12 @@ public class RetrofitManager {
         if (retrofitHashMap.containsKey(baseUrl)) {
             return retrofitHashMap.get(baseUrl);
         }
-        Gson gson = new GsonBuilder().setLenient().disableHtmlEscaping().create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
         retrofitHashMap.put(baseUrl, retrofit);
         return retrofit;
