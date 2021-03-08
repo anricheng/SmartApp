@@ -39,7 +39,7 @@ public class RetrofitManager {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .retryOnConnectionFailure(true)
                 .readTimeout(8, TimeUnit.SECONDS)
-                .connectTimeout(15, TimeUnit.SECONDS)
+                .connectTimeout(8, TimeUnit.SECONDS)
                 .addInterceptor(new HttpInterceptor())
                 .addInterceptor(new ChuckInterceptor(context))
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
