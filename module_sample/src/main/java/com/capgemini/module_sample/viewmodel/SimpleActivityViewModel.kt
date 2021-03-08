@@ -1,9 +1,7 @@
 package com.capgemini.module_sample.viewmodel
 
 import android.Manifest
-import android.os.Bundle
 import android.text.Editable
-import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,6 +18,7 @@ import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.S
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS_DETAILS
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS_Pull_Request
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_SCROLL
 import com.capgemini.repository.SampleRepository1
 import kotlinx.coroutines.launch
@@ -78,6 +77,9 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
             val response = sampleRepository1.getReposDetails("anricheng","MyNote")
             NavigationHelper.navigation(SAMPLE_REPOS_DETAILS,REPOS_DERAILS,response)
         }
+    }
+    fun navigateToPullRequestActivity(){
+        NavigationHelper.navigation(SAMPLE_REPOS_Pull_Request)
     }
 
 }

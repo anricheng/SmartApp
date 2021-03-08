@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.Utils
+import com.capgemini.entity.ReposPullRequestItem
 import com.capgemini.lib_common.extendtions.isTrue
 import com.capgemini.lib_common.extendtions.notNull
 import com.capgemini.lib_common.extendtions.otherwise

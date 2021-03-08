@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="reposDetails"
-            type="com.capgemini.entity.ReposDetails" />
+            name="reposItem"
+            type="com.capgemini.entity.RepositoriesItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,7 +57,7 @@
             android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            android:src="@drawable/simple_repos_details_head_portrait">
+            android:src="@{reposItem.owner.avatarUrl}">
         </ImageView>
 
         <TextView
@@ -67,7 +67,7 @@
             app:layout_constraintStart_toEndOf="@id/imageViewHead"
             app:layout_constraintTop_toTopOf="@+id/imageViewHead"
             tools:text="anricheng"
-            android:text="@{reposDetails.owner.login}">
+            android:text="@{reposItem.owner.login}">
         </TextView>
 
         <TextView
@@ -79,7 +79,7 @@
             android:textStyle="bold"
             android:textSize="20dp"
             tools:text="JTPLearning"
-            android:text="@{reposDetails.name}">
+            android:text="@{reposItem.name}">
         </TextView>
 
         <ImageView
@@ -113,7 +113,7 @@
             android:id="@+id/textViewStar"
             style="@style/simplemytextstyle"
             android:layout_marginStart="8dp"
-            android:text="@{String.format(@string/simple_star,reposDetails.stargazersCount)}"
+            android:text="@{String.format(@string/simple_star,reposItem.stargazers_count)}"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewStar"
             app:layout_constraintStart_toEndOf="@id/imageViewStar"
             app:layout_constraintTop_toTopOf="@id/imageViewStar"
@@ -137,7 +137,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageViewFolk"
             app:layout_constraintStart_toEndOf="@id/imageViewFolk"
             tools:text="0个复刻"
-            android:text="@{String.format(@string/simple_fork,reposDetails.forksCount)}">
+            android:text="@{String.format(@string/simple_fork,reposItem.forks_count)}">
         </TextView>
 
         <Button
@@ -198,7 +198,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageViewIssues"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
             tools:text="0"
-            android:text="@{Integer.toString(reposDetails.openIssuesCount)}"
+            android:text="@{Integer.toString(reposItem.open_issues_count)}"
             android:textSize="20dp">
         </TextView>
 
@@ -226,7 +226,7 @@
             android:id="@+id/textViewPull2"
             android:layout_width="9dp"
             android:layout_height="22dp"
-            android:text="@{Integer.toString(reposDetails.subscribersCount)}"
+            android:text="@{Integer.toString(reposItem.watchers_count)}"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewPull"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
@@ -260,7 +260,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageViewWatch"
             app:layout_constraintEnd_toEndOf="@id/guideline5"
             tools:text="0"
-            android:text="@{Integer.toString(reposDetails.watchersCount)}"
+            android:text="@{Integer.toString(reposItem.watchers)}"
             android:textSize="20dp">
         </TextView>
 
@@ -335,7 +335,7 @@
             app:layout_constraintTop_toTopOf="@id/guideline3"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             tools:text="JTPLearning"
-            android:text="@{reposDetails.name}"
+            android:text="@{reposItem.name}"
             android:textSize="20dp"
             android:textStyle="bold">
         </TextView>
@@ -347,7 +347,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewDescribe"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             tools:text="This is learning project to record JTP's daily progress."
-            android:text="@{reposDetails.description.toString()}"
+            android:text="@{reposItem.description.toString()}"
             android:textSize="18dp">
         </TextView>
 

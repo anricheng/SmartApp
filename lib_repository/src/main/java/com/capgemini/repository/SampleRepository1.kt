@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.capgemini.api.GithubApi
 import com.capgemini.database.dao.SimpleEntityDao
 import com.capgemini.entity.ItemEntity
+import com.capgemini.entity.ReposPullRequestItem
 
 class SampleRepository1(private val dao: SimpleEntityDao, private val githubApi: GithubApi) {
 
@@ -18,4 +19,5 @@ class SampleRepository1(private val dao: SimpleEntityDao, private val githubApi:
     suspend fun getReposDetails(owner: String, repo: String) = githubApi.getReposDetails(owner, repo)
 
     suspend fun getRepositories(username: String) = githubApi.getRepositories(username)
+    suspend fun getReposPullRequest(ownername: String,reponame: String):List<ReposPullRequestItem> = githubApi.getReposPullRequest(ownername, reponame)
 }

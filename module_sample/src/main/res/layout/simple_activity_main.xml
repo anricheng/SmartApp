@@ -103,6 +103,15 @@
             android:onClick="@{()->viewModel.navigateToReposDetailsActivity()}"
             android:textAllCaps="false"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/repesPullRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_regular"
+            android:text="goToPullRequest"
+            android:onClick="@{()->viewModel.navigateToPullRequestActivity()}"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
         <com.capgemini.lib_widget.DeletableEditText
             android:fontFamily="@font/antennawgl_extralight"

@@ -39,16 +39,7 @@ class SimpleReposDetailsActivity : BaseDataBindingActivity<SimpleActivityReposDe
         itemToString = bundle?.getString("abc")
         item = gson?.fromJson(itemToString,RepositoriesItem::class.java)
         Log.v("hello",item.toString())
-        reposDetails?.name == item?.name
-        reposDetails?.archiveUrl == item?.archive_url
-        reposDetails?.isPrivate == item?.isPrivate
-        reposDetails?.stargazersCount == item?.stargazers_count
-        reposDetails?.owner?.login == item?.owner?.login
-        reposDetails?.forksCount == item?.forks_count
-        reposDetails?.openIssuesCount == item?.open_issues_count
-        reposDetails?.watchersCount == item?.watchers_count
-        reposDetails?.description == item?.description
-        binding.reposDetails = reposDetails
+        binding.reposItem = item
         textViewUser.setText(item?.owner?.login)
         reposDetails?.isPrivate?.isTrue{
             textViewPrivate.setText("私人")

@@ -3,6 +3,7 @@ package com.capgemini.module_sample.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -13,6 +14,7 @@ import com.capgemini.lib_communicate.arouter.NavigationHelper
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.databinding.SimpleItemLayoutRepositoryBinding
+import com.capgemini.module_sample.viewmodel.SimpleReposPullRequestModel
 
 
 class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.ItemViewHolder>(

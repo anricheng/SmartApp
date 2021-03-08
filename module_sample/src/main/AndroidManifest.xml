@@ -11,6 +11,8 @@
         <activity android:name=".activity.SimpleCommunityHomeActivity" />
         <activity android:name=".activity.SimpleScrollActivity" />
         <activity android:name=".activity.SimpleReposActivity" />
+        <activity android:name=".activity.SimpleReposPullRequestActivity" />
+        <activity android:name=".activity.SimpleCreatePullRequestActivity" />
     </application>
 
 </manifest>

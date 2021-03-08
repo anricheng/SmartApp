@@ -43,7 +43,6 @@ class SimpleReposActivity : BaseDataBindingActivity<SimpleActivityReposBinding>(
     override fun setupListener() {
         mAdapter.setItemClickListener(object : setOnClickListener {
             override fun Onclick(item: RepositoriesItem) {
-//                itemToString = item.toString()
                 itemToString = gson?.toJson(item)
                 bundle?.putString("abc",itemToString)
                 ARouter.getInstance().build(SampleModuleARouterPath.SAMPLE_REPOS_DETAILS).withBundle("bundle",bundle).navigation()
