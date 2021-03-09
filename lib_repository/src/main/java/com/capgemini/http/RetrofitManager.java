@@ -3,6 +3,8 @@ package com.capgemini.http;
 import android.content.Context;
 
 import com.capgemini.util.HttpsUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.readystatesoftware.chuck.ChuckInterceptor;
 
 import java.util.HashMap;
