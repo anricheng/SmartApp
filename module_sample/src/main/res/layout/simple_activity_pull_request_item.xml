@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<data>
+    <variable
+        name="item"
+        type="com.capgemini.entity.ReposPullRequestItem" />
+</data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_pull_request1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/antennawgl_extralight"
+            android:textColor="@color/black"
+            android:text="@{item.base.repo.owner.login}"
+            app:layout_constraintBottom_toTopOf="@+id/simpleGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.27"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.457"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:textColor="@color/black"
+            android:text='@{"#"+item.countNumber+"opened "+item.openTime+" hour ago by" +item.user.login}'
+            app:layout_constraintBottom_toTopOf="@+id/simpleGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/simpleGuideline3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="#3 opened 1 hour ago by xing_fu"
+            />
+
+        <CheckBox
+            android:id="@+id/simpleCheckbox"
+            android:layout_width="@dimen/dp26"
+
+            android:layout_height="@dimen/dp26"
+            app:layout_constraintBottom_toTopOf="@+id/simpleGuideline"
+            app:layout_constraintEnd_toEndOf="@+id/avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/simpleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/simpleBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="avatar" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/simpleGuideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="84dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
