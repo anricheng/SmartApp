@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.capgemini.module_sample.viewmodel.SimpleRecentEventViewModel"/>
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{viewModel.visibility?View.VISIBLE:View.INVISIBLE}"
+        android:background="@color/black">
+
+        <include layout="@layout/include_toolbar" />
+
+        <View
+            android:id="@+id/viewLine4"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="0dp"
+            android:background="#101010"
+            android:layout_width="8dp">
+        </View>
+
+        <View
+            android:id="@+id/viewLine5"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="0dp"
+            android:background="#101010"
+            android:layout_width="8dp">
+        </View>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.28" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <ImageView
+            android:layout_width="@dimen/dp42"
+            android:layout_height="@dimen/dp42"
+            android:id="@+id/imageViewProfileHead"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@drawable/simple_repos_details_head_portrait">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileName"
+            android:layout_marginTop="-5dp"
+            app:layout_constraintStart_toEndOf="@id/imageViewProfileHead"
+            app:layout_constraintTop_toTopOf="@id/imageViewProfileHead"
+            tools:text="jkPang"
+            android:textColor="#2E7EFA"
+            android:text="@{viewModel.data.login}"
+            android:textSize="@dimen/dp18"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/dp10">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewCreate"
+            app:layout_constraintStart_toStartOf="@id/textViewProfileName"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewProfileHead"
+            tools:text="joined on 2016-03-02"
+            android:textColor="@color/white"
+            android:text="@{String.format(@string/simple_createAt,viewModel.data.createdAt)}"
+            android:textSize="@dimen/dp14">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileReposNumber"
+            app:layout_constraintStart_toStartOf="@id/textViewProfileRepos"
+            app:layout_constraintEnd_toEndOf="@id/textViewProfileRepos"
+            app:layout_constraintTop_toBottomOf="@id/guideline1"
+            tools:text="120"
+            android:textColor="@color/chuck_colorAccent"
+            android:textStyle="bold"
+            android:text="@{Integer.toString(viewModel.data.publicRepos)}"
+            android:textSize="@dimen/dp18"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileRepos"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/textViewProfileReposNumber"
+            android:text="Repositories"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileFollowersNumber"
+            app:layout_constraintStart_toStartOf="@id/guideline5"
+            app:layout_constraintEnd_toEndOf="@id/guideline5"
+            app:layout_constraintTop_toBottomOf="@id/guideline1"
+            tools:text="100"
+            android:textColor="@color/colorAccent"
+            android:text="@{Integer.toString(viewModel.data.followers)}"
+            android:textSize="@dimen/dp18"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileFollowers"
+            app:layout_constraintStart_toStartOf="@id/guideline5"
+            app:layout_constraintEnd_toEndOf="@id/guideline5"
+            app:layout_constraintTop_toTopOf="@id/textViewProfileRepos"
+            android:text="Followers"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewProfileFollowingNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dp18"
+            app:layout_constraintEnd_toEndOf="@id/textViewProfileFollowing"
+            app:layout_constraintStart_toStartOf="@id/textViewProfileFollowing"
+            app:layout_constraintTop_toBottomOf="@id/guideline1"
+            tools:text="102"
+            android:textColor="@color/chuck_colorPrimaryDark"
+            android:textStyle="bold"
+            android:text="@{Integer.toString(viewModel.data.following)}">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileFollowing"
+            app:layout_constraintEnd_toEndOf="@id/guideline6"
+            app:layout_constraintTop_toTopOf="@id/textViewProfileRepos"
+            android:text="Following"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp16">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewProfileEvent"
+            android:layout_marginTop="@dimen/dp20"
+            app:layout_constraintTop_toBottomOf="@id/textViewProfileRepos"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            android:text="Recent Event"
+            android:textColor="#2E7EFA"
+            android:textSize="@dimen/dp16"
+            android:textStyle="bold">
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profileRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp120"
+            app:layout_constraintStart_toEndOf="@id/viewLine4"
+            app:layout_constraintEnd_toStartOf="@id/viewLine5"
+            app:layout_constraintTop_toBottomOf="@id/textViewProfileEvent"
+            tools:listitem="@layout/simple_item_layout_recent_event"></androidx.recyclerview.widget.RecyclerView>
+
+        <View
+            android:id="@+id/viewLine3"
+            app:layout_constraintTop_toBottomOf="@id/profileRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="8dp"
+            android:background="#101010"
+            android:layout_width="fill_parent">
+        </View>
+
+        <ImageView
+            android:layout_width="@dimen/dp18"
+            android:layout_height="@dimen/dp18"
+            android:layout_marginTop="@dimen/dp6"
+            android:id="@+id/imageViewProfileCompany"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/viewLine3"
+            android:src="@drawable/ic_company">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:id="@+id/textViewProfileCompany"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProfileCompany"
+            app:layout_constraintTop_toTopOf="@id/imageViewProfileCompany"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewProfileCompany"
+            tools:text="Company"
+            android:textColor="@color/white"
+            android:text="@{viewModel.data.company}"
+            android:textSize="@dimen/dp15">
+        </TextView>
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp15"
+            android:id="@+id/imageViewProfileLocation"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/imageViewProfileCompany"
+            android:src="@drawable/ic_location">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:id="@+id/textViewProfileLocation"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProfileCompany"
+            app:layout_constraintTop_toTopOf="@id/imageViewProfileLocation"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewProfileLocation"
+            tools:text="Location"
+            android:textColor="@color/white"
+            android:text="@{viewModel.data.location}"
+            android:textSize="@dimen/dp15">
+        </TextView>
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp18"
+            android:layout_marginTop="@dimen/dp15"
+            android:id="@+id/imageViewProfileEmail"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/imageViewProfileLocation"
+            android:src="@drawable/ic_email">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:id="@+id/textViewProfileEmail"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProfileCompany"
+            app:layout_constraintTop_toTopOf="@id/imageViewProfileEmail"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewProfileEmail"
+            tools:text="Email"
+            android:text="@{viewModel.data.blog}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp15">
+        </TextView>
+
+        <View
+            android:id="@+id/viewLine2"
+            app:layout_constraintTop_toBottomOf="@id/imageViewProfileEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="7dp"
+            android:background="#101010"
+            android:layout_width="fill_parent">
+        </View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewSetting"
+            android:layout_marginTop="@dimen/dp15"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/viewLine2"
+            android:text="Setting"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp15">
+        </TextView>
+        <ImageView
+            android:layout_width="@dimen/dp12"
+            android:layout_height="@dimen/dp12"
+            android:id="@+id/imageViewProfile1"
+            app:layout_constraintTop_toTopOf="@id/textViewSetting"
+            app:layout_constraintBottom_toBottomOf="@id/textViewSetting"
+            app:layout_constraintEnd_toEndOf="@id/guideline6"
+            android:src="@drawable/ic_angle_right">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewAbout"
+            android:layout_marginTop="@dimen/dp15"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/textViewSetting"
+            android:text="About"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp15">
+        </TextView>
+        <ImageView
+            android:layout_width="@dimen/dp12"
+            android:layout_height="@dimen/dp12"
+            android:id="@+id/imageViewProfile2"
+            app:layout_constraintTop_toTopOf="@id/textViewAbout"
+            app:layout_constraintBottom_toBottomOf="@id/textViewAbout"
+            app:layout_constraintEnd_toEndOf="@id/guideline6"
+            android:src="@drawable/ic_angle_right">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewFeedback"
+            android:layout_marginTop="@dimen/dp15"
+            app:layout_constraintStart_toStartOf="@id/guideline4"
+            app:layout_constraintTop_toBottomOf="@id/textViewAbout"
+            android:text="Feedback"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp15">
+        </TextView>
+        <ImageView
+            android:layout_width="@dimen/dp12"
+            android:layout_height="@dimen/dp12"
+            android:id="@+id/imageViewProfile3"
+            app:layout_constraintTop_toTopOf="@id/textViewFeedback"
+            app:layout_constraintBottom_toBottomOf="@id/textViewFeedback"
+            app:layout_constraintEnd_toEndOf="@id/guideline6"
+            android:src="@drawable/ic_angle_right">
+        </ImageView>
+
+        <View
+            android:id="@+id/viewLine6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="8dp"
+            android:background="#101010"
+            android:layout_width="fill_parent">
+        </View>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
