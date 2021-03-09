@@ -33,7 +33,7 @@ class SimpleGithubProfileActivity : BaseDataBindingActivity<SimpleActivityGithub
     }
 
     override fun setupView() {
-        viewModel.visibility.value = false
+        //viewModel.visibility.value = false
         mToolbarTitle.text = "个人中心"
         profileRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@SimpleGithubProfileActivity, RecyclerView.HORIZONTAL, false)

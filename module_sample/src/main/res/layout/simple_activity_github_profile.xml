@@ -23,7 +23,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_height="0dp"
-            android:background="#101010"
+            android:background="@color/profileBlack"
             android:layout_width="8dp">
         </View>
 
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_height="0dp"
-            android:background="#101010"
+            android:background="@color/profileBlack"
             android:layout_width="8dp">
         </View>
 
@@ -96,7 +96,7 @@
             app:layout_constraintStart_toEndOf="@id/imageViewProfileHead"
             app:layout_constraintTop_toTopOf="@id/imageViewProfileHead"
             tools:text="jkPang"
-            android:textColor="#2E7EFA"
+            android:textColor="@color/profileName"
             android:text="@{viewModel.data.login}"
             android:textSize="@dimen/dp18"
             android:textStyle="bold"
@@ -197,7 +197,7 @@
             app:layout_constraintTop_toBottomOf="@id/textViewProfileRepos"
             app:layout_constraintStart_toStartOf="@id/guideline4"
             android:text="Recent Event"
-            android:textColor="#2E7EFA"
+            android:textColor="@color/profileName"
             android:textSize="@dimen/dp16"
             android:textStyle="bold">
         </TextView>
@@ -216,7 +216,7 @@
             app:layout_constraintTop_toBottomOf="@id/profileRecyclerView"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_height="8dp"
-            android:background="#101010"
+            android:background="@color/profileBlack"
             android:layout_width="fill_parent">
         </View>
 
@@ -295,7 +295,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"
             android:layout_height="7dp"
-            android:background="#101010"
+            android:background="@color/profileBlack"
             android:layout_width="fill_parent">
         </View>
 
@@ -370,7 +370,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_height="8dp"
-            android:background="#101010"
+            android:background="@color/profileBlack"
             android:layout_width="fill_parent">
         </View>
 

@@ -16,9 +16,13 @@ import kotlinx.coroutines.launch
 
 class SimpleRecentEventViewModel @ViewModelInject constructor(private val repository1: SampleRepository1) : ViewModel(){
 
-    var visibility = MutableLiveData<Boolean>()
+    private var _visibility = MutableLiveData<Boolean>().also {
+        it.value = false
+    }
+    val visibility: LiveData<Boolean> = _visibility
 
-    var data = MutableLiveData<GithubUser>()
+    private var _data = MutableLiveData<GithubUser>()
+    val data: LiveData<GithubUser> = _data
 
     private var _recentEventData = MutableLiveData<List<RecentEvent>>()
     val dataList: LiveData<List<RecentEvent>> = _recentEventData
@@ -26,7 +30,7 @@ class SimpleRecentEventViewModel @ViewModelInject constructor(private val reposi
     fun getUser(){
         viewModelScope.launch {
             showLoading(R.string.simple_loading)
-            data.value = repository1.getGithubUser("willdurand")
+            _data.value = repository1.getGithubUser("willdurand")
             hideLoading()
         }
     }
@@ -36,7 +40,7 @@ class SimpleRecentEventViewModel @ViewModelInject constructor(private val reposi
             showLoading(R.string.simple_loading)
             _recentEventData.value = repository1.getRecentEvent("willdurand")
             hideLoading()
-            visibility.value = true
+            _visibility.value = true
         }
     }
 

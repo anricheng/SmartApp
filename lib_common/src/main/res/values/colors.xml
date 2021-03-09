@@ -5,6 +5,9 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorRed">#FF0000</color>
     <color name="black">#000000</color>
+    <color name="profileBlack">#101010</color>
+    <color name="profileName">#2E7EFA</color>
+    <color name="profileRecentEvent">#1D1D27</color>
 
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>

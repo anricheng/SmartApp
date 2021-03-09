@@ -13,14 +13,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/dp280"
         android:layout_height="wrap_content"
-        android:background="#1D1D27">
+        android:background="@color/profileRecentEvent">
 
         <View
             android:id="@+id/viewLine2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_height="0dp"
-            android:background="#E6000000"
+            android:background="@color/black"
             android:layout_width="8dp">
         </View>
 
