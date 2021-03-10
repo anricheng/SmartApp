@@ -31,7 +31,11 @@
     <dimen name="dp96">96dp</dimen>
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp120">120dp</dimen>
+    <dimen name="dp110">110dp</dimen>
     <dimen name="dp160">160dp</dimen>
+    <dimen name="dp260">260dp</dimen>
+    <dimen name="dp280">280dp</dimen>
+    <dimen name="dp300">300dp</dimen>
 
     <dimen name="sp1">1dp</dimen>
     <dimen name="sp2">2dp</dimen>
