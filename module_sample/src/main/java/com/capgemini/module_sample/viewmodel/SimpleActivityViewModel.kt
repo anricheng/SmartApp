@@ -15,6 +15,7 @@ import com.capgemini.lib_communicate.arouter.RouterExtra.Companion.REPOS_DERAILS
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_COMMUNITY
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_GITHUB_LOGIN
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_GITHUB_PROFILE
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LIST
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_LOGIN
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS
@@ -87,6 +88,10 @@ class SimpleMainActivityViewModel @ViewModelInject constructor(private val sampl
 
     fun navigateToGitHubLoginActivity(){
         NavigationHelper.navigation(SAMPLE_GITHUB_LOGIN)
+    }
+
+    fun navigateToGithubProfileActivity(){
+        NavigationHelper.navigation(SAMPLE_GITHUB_PROFILE)
     }
 
 }

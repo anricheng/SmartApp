@@ -2,4 +2,5 @@
 <resources>
     <string name="simple_star">%d个星标</string>
     <string name="simple_fork">%d个复刻</string>
+    <string name="simple_createAt">join on %s</string>
 </resources>

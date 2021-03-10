@@ -24,5 +24,7 @@ class SampleRepository1(private val dao: SimpleEntityDao, private val githubApi:
     suspend fun getReposPullRequest(ownername: String,reponame: String):List<ReposPullRequestItem> = githubApi.getReposPullRequest(ownername, reponame)
 
     suspend fun getGithubToken(client_id:String, client_secret:String, code: String) = gitHubToken.getToken(client_id,client_secret,code)
+    suspend fun getGithubUser(username: String) = githubApi.getGithubUser(username)
+    suspend fun getRecentEvent(username: String) = githubApi.getRecentEvent(username)
 
 }
