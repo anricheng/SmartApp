@@ -73,5 +73,7 @@ interface SampleModuleARouterPath {
         const val SAMPLE_REPOS_DETAILS = "/sample/reposDetails"
         const val SAMPLE_REPOS = "/sample/repos"
         const val SAMPLE_REPOS_Pull_Request = "/sample/pulls/request"
+        const val SAMPLE_GITHUB_LOGIN = "/sample/gitHubLogin"
+        const val SAMPLE_GITHUB_PROFILE = "/sample/githubProfile"
     }
 }

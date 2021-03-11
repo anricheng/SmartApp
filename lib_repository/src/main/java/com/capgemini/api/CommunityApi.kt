@@ -10,7 +10,8 @@ interface CommunityApi {
     @GET("/feeds/queryHotFeedsList")
     fun getFeeds(
         @Query("feedType") feedType: String,
-        @Query("userId") userId: String, @Query("feedId") feedId: String,
+        @Query("userId") userId: String,
+        @Query("feedId") feedId: String,
         @Query("pageCount") pageCount: String,
     ): BaseResponse<ArrayList<Feed>>
 }

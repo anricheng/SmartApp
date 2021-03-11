@@ -1,5 +1,6 @@
 package com.capgemini.module_sample.activity
 
+import android.util.Log
 import android.view.WindowManager
 import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -33,8 +34,8 @@ class SimpleMainActivity : BaseDataBindingActivity<SimpleActivityMainBinding>() 
         toggleStatusBar.throttleFirstClick {
             isStatusBar = isStatusBar.isTrue {
                 window.setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN)
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN)
                 false
             }.otherwise {
                 window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
