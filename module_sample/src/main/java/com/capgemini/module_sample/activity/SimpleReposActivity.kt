@@ -1,10 +1,6 @@
 package com.capgemini.module_sample.activity
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,9 +9,8 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.capgemini.entity.RepositoriesItem
 import com.capgemini.lib_common.base.BaseDataBindingActivity
 import com.capgemini.lib_common.base.mToolbarTitle
-import com.capgemini.lib_common.databinding.onClick
-import com.capgemini.lib_communicate.arouter.NavigationHelper
-import com.capgemini.lib_communicate.arouter.RouterExtra
+import com.capgemini.lib_communicate.arouter.RouterExtra.Companion.ItEMBUNDLE
+import com.capgemini.lib_communicate.arouter.RouterExtra.Companion.ItEMSTRING
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath.Companion.SAMPLE_REPOS
 import com.capgemini.module_sample.R
@@ -33,19 +28,17 @@ class SimpleReposActivity : BaseDataBindingActivity<SimpleActivityReposBinding>(
     private val viewModel by viewModels<SimpleReposViewModel>()
     private val mAdapter = SimpleReposAdapter()
     private var bundle:Bundle? = Bundle()
-    var itemToString:String? = null
+    var itemToString = String()
     var gson:Gson? = Gson()
     override fun setupViewModel() {
         binding.viewmodel = viewModel
-
     }
-
     override fun setupListener() {
         mAdapter.setItemClickListener(object : setOnClickListener {
             override fun Onclick(item: RepositoriesItem) {
-                itemToString = gson?.toJson(item)
-                bundle?.putString("abc",itemToString)
-                ARouter.getInstance().build(SampleModuleARouterPath.SAMPLE_REPOS_DETAILS).withBundle("bundle",bundle).navigation()
+                    itemToString = gson?.toJson(item)!!
+                    bundle?.putString(ItEMSTRING, itemToString)
+                    ARouter.getInstance().build(SampleModuleARouterPath.SAMPLE_REPOS_DETAILS).withBundle(ItEMBUNDLE, bundle).navigation()
             }
         }
         )

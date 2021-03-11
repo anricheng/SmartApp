@@ -18,7 +18,6 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
     RepositoryItemDiffCallback()
 ) {
     private var msetOnClickListemer: setOnClickListener? = null
-    private var repositoriesItem:RepositoriesItem? = null
     fun setItemClickListener(s1: setOnClickListener) {
         msetOnClickListemer = s1
     }
@@ -32,7 +31,7 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
         return ItemViewHolder(binding)
     }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        repositoriesItem = getItem(position)
+       var repositoriesItem = getItem(position)
         holder.bind(repositoriesItem!!)
         holder.itemView.setOnClickListener({ v ->
             msetOnClickListemer?.Onclick(repositoriesItem!!)
@@ -59,4 +58,7 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
             return oldItem == newItem
         }
     }
+}
+interface setOnClickListener {
+    fun Onclick(item: RepositoriesItem)
 }

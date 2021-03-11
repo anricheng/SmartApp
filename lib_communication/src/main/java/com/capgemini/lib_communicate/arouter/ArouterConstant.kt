@@ -24,6 +24,8 @@ interface RouterExtra {
         const val INTERCEPTED_PATH = "intercepted_path"
         const val REPOS_DERAILS = "reposDetails"
         const val REPOS_LIST = "reposList"
+        const val ItEMSTRING = "itemstring"
+        const val ItEMBUNDLE = "bundle"
     }
 }
 

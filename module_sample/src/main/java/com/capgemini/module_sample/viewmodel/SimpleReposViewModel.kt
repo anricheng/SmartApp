@@ -27,11 +27,4 @@ class SimpleReposViewModel @ViewModelInject constructor(private val repository1:
             hideLoading()
         }
     }
-
-    //跳转到仓库详情
-    fun toReposDetailView(){
-        viewModelScope.launch {
-            NavigationHelper.navigation(SAMPLE_REPOS_DETAILS)
-        }
-    }
 }

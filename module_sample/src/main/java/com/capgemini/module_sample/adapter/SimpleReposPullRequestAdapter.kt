@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capgemini.entity.ReposPullRequestItem
 import com.capgemini.entity.RepositoriesItem
 import com.capgemini.module_sample.R
-import com.capgemini.module_sample.databinding.SimpleActivityCreatePullRequestBinding
 import com.capgemini.module_sample.databinding.SimpleActivityPullRequestBinding
 import com.capgemini.module_sample.databinding.SimpleActivityPullRequestItemBinding
 import java.time.LocalDate
@@ -25,12 +24,8 @@ import java.util.concurrent.atomic.AtomicInteger
 class SimpleReposPullRequestAdapter :
     ListAdapter<ReposPullRequestItem, SimpleReposPullRequestAdapter.ItemViewHolder>(PullRequestItemDiffCallback()) {
 
-    private var msetOnClickListemer: setOnClickListener? = null
-    private var reposPullRequestItem:ReposPullRequestItem? = null
+    lateinit var reposPullRequestItem:ReposPullRequestItem
     private val count = AtomicInteger(0)
-    fun setItemClickListener(s1: setOnClickListener) {
-        msetOnClickListemer = s1
-    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
        val binding:SimpleActivityPullRequestItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
            R.layout.simple_activity_pull_request_item,parent,false

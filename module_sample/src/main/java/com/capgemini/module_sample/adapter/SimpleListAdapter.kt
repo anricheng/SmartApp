@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.capgemini.entity.ItemEntity
+import com.capgemini.entity.RepositoriesItem
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.databinding.SimpleItemLayoutTestBinding
 

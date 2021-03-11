@@ -41,50 +41,10 @@ data class ReposPullRequestItem(
     val statuses_url: String, // https://api.github.com/repos/octocat/Hello-World/statuses/20cb292856841647722e234f18c703b4b6ca1d71
     val head: Head,
     val base: Base,
-    val _links: Links,
     val author_association: String, // NONE
     @SerializedName("auto_merge")val auto_merge: String? = null, // null
     @SerializedName("ctive_lock_reason")val active_lock_reason: String? = null, // null
     var openTime: Long,
     var countNumber: Int
-):Parcelable
 
-@Parcelize
-data class Self(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/pulls/881
-):Parcelable
-
-@Parcelize
-data class Html(
-    val href: String // https://github.com/octocat/Hello-World/pull/881
-):Parcelable
-
-@Parcelize
-data class Issue(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/issues/881
-):Parcelable
-
-@Parcelize
-data class Comments(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/issues/881/comments
-):Parcelable
-
-@Parcelize
-data class ReviewComments(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/pulls/881/comments
-):Parcelable
-
-@Parcelize
-data class ReviewComment(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/pulls/comments{/number}
-):Parcelable
-
-@Parcelize
-data class Commits(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/pulls/881/commits
-):Parcelable
-
-@Parcelize
-data class Statuses(
-    val href: String // https://api.github.com/repos/octocat/Hello-World/statuses/20cb292856841647722e234f18c703b4b6ca1d71
 ):Parcelable

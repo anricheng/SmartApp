@@ -30,14 +30,14 @@ class SimpleReposDetailsActivity : BaseDataBindingActivity<SimpleActivityReposDe
     @JvmField
     @Autowired
     var reposDetails: ReposDetails? = null
-    var bundle:Bundle? = null
+    var bundle:Bundle? = Bundle()
     var gson: Gson? = Gson()
-    var item:RepositoriesItem? = null
-    var itemToString:String? = null
+    lateinit var item:RepositoriesItem
+    lateinit var itemToString:String
     override fun setupViewModel() {
-        bundle = intent.getBundleExtra("bundle")
-        itemToString = bundle?.getString("abc")
-        item = gson?.fromJson(itemToString,RepositoriesItem::class.java)
+        bundle = intent.getBundleExtra(RouterExtra.ItEMBUNDLE)
+        itemToString = bundle?.getString(RouterExtra.ItEMSTRING)!!
+        item = gson?.fromJson(itemToString,RepositoriesItem::class.java)!!
         Log.v("hello",item.toString())
         binding.reposItem = item
         textViewUser.setText(item?.owner?.login)

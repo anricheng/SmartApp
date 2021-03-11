@@ -19,18 +19,18 @@ import kotlinx.coroutines.launch
 
 class SimpleReposPullRequestModel @ViewModelInject constructor(private val sampleRepository1: SampleRepository1) :
     ViewModel() {
-    private val dataList1 = MutableLiveData<List<ReposPullRequestItem>>()
-    val dataList2: LiveData<List<ReposPullRequestItem>> = dataList1
+    private val _dataList = MutableLiveData<List<ReposPullRequestItem>>()
+    val dataList: LiveData<List<ReposPullRequestItem>> = _dataList
     val pullRequestData = MutableLiveData<ReposPullRequestItem>()
     var bundle:Bundle? = null
     var visibility = MutableLiveData<Boolean>()
 
-    fun getpullRequestData(){
+    fun getpullRequestData(ownername:String,reponame:String){
         viewModelScope.launch {
             showLoading(R.string.simple_loading_context_pullrequest)
-           val data = sampleRepository1.getReposPullRequest("octocat","hello-world")
+           val data = sampleRepository1.getReposPullRequest(ownername,reponame)
             pullRequestData.value = data.get(0)
-            dataList1.value = data
+            _dataList.value = data
             hideLoading()
             visibility.value = true
         }
