@@ -252,11 +252,10 @@
             android:layout_height="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintHorizontal_bias="0.113"
             app:layout_constraintStart_toStartOf="@+id/simpleGuideline12"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.476" />
-
+            app:layout_constraintVertical_bias="0.43" />
 
         <ImageView
             android:id="@+id/simpleImageview3"
@@ -265,10 +264,10 @@
             android:src="@drawable/ic_pull_request"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.032"
+            app:layout_constraintHorizontal_bias="0.068"
             app:layout_constraintStart_toEndOf="@+id/simpleCheckbox"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.468" />
+            app:layout_constraintVertical_bias="0.44" />
 
         <TextView
             android:id="@+id/simpleTextview8"
@@ -278,10 +277,10 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.007"
+            app:layout_constraintHorizontal_bias="0.012"
             app:layout_constraintStart_toEndOf="@+id/simpleImageview3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.469"
+            app:layout_constraintVertical_bias="0.441"
             tools:text="2Open" />
 
         <ImageView
@@ -294,7 +293,7 @@
             app:layout_constraintHorizontal_bias="0.134"
             app:layout_constraintStart_toEndOf="@+id/simpleTextview8"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.468" />
+            app:layout_constraintVertical_bias="0.44" />
 
         <TextView
             android:id="@+id/simpleTextview7"
@@ -307,7 +306,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/simpleImageview4"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.467"
+            app:layout_constraintVertical_bias="0.441"
             tools:text="1Closed" />
 
         <androidx.recyclerview.widget.RecyclerView
