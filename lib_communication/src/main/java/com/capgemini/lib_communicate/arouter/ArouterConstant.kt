@@ -26,6 +26,7 @@ interface RouterExtra {
         const val REPOS_LIST = "reposList"
         const val ItEMSTRING = "itemstring"
         const val ItEMBUNDLE = "bundle"
+        const val ATOMICINTEGER = 0
     }
 }
 
