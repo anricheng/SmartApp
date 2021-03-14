@@ -7,14 +7,21 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.capgemini.entity.RepositoriesItem
+import com.capgemini.lib_communicate.arouter.NavigationHelper
+import com.capgemini.lib_communicate.arouter.SampleModuleARouterPath
 import com.capgemini.module_sample.R
 import com.capgemini.module_sample.databinding.SimpleItemLayoutRepositoryBinding
+import com.capgemini.module_sample.viewmodel.SimpleReposPullRequestModel
 
 
-class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.ItemViewHolder>(RepositoryItemDiffCallback()) {
-
+class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.ItemViewHolder>(
+    RepositoryItemDiffCallback()
+) {
+    private var msetOnClickListemer: setOnClickListener? = null
+    fun setItemClickListener(s1: setOnClickListener) {
+        msetOnClickListemer = s1
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-
         val binding: SimpleItemLayoutRepositoryBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.simple_item_layout_repository,
@@ -23,25 +30,35 @@ class SimpleReposAdapter : ListAdapter<RepositoriesItem, SimpleReposAdapter.Item
         )
         return ItemViewHolder(binding)
     }
-
-    override fun onBindViewHolder(holder: SimpleReposAdapter.ItemViewHolder, position: Int) {
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+       var repositoriesItem = getItem(position)
+        holder.bind(repositoriesItem!!)
+        holder.itemView.setOnClickListener({ v ->
+            msetOnClickListemer?.Onclick(repositoriesItem!!)
+        })
     }
-
-    class ItemViewHolder(val binding: SimpleItemLayoutRepositoryBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class ItemViewHolder(val binding: SimpleItemLayoutRepositoryBinding) : RecyclerView.ViewHolder(
+        binding.root
+    ) {
         fun bind(item: RepositoriesItem) = with(itemView) {
             binding.item = item
         }
     }
+    class RepositoryItemDiffCallback : DiffUtil.ItemCallback<RepositoriesItem>() {
+        override fun areItemsTheSame(
+            oldItem: RepositoriesItem,
+            newItem: RepositoriesItem
+        ): Boolean {
+            return oldItem.name == newItem.name
+        }
+        override fun areContentsTheSame(
+            oldItem: RepositoriesItem,
+            newItem: RepositoriesItem
+        ): Boolean {
+            return oldItem == newItem
+        }
+    }
 }
-
-class RepositoryItemDiffCallback : DiffUtil.ItemCallback<RepositoriesItem>() {
-    override fun areItemsTheSame(oldItem: RepositoriesItem, newItem: RepositoriesItem): Boolean {
-        return oldItem.name ==newItem.name
-    }
-
-    override fun areContentsTheSame(oldItem: RepositoriesItem, newItem: RepositoriesItem): Boolean {
-        return oldItem == newItem
-    }
+interface setOnClickListener {
+    fun Onclick(item: RepositoriesItem)
 }

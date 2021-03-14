@@ -3,6 +3,7 @@
     <string name="simple_login">登录</string>
     <string name="simple_hide_show_status_bar">隐藏状态栏</string>
     <string name="simple_loading_context">加载仓库中...</string>
+    <string name="simple_loading_context_pullrequest">正在加载中请稍等</string>
     <string name="simple_loading">加载中...</string>
     <string name="simple_gongfa">
         总纲\n
